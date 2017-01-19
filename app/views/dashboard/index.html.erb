@@ -1,3 +1,17 @@
 <h1>Lightroom Analysis</h1>
 
 <p><%= AdobeImage.count %> images in <%= AgLibraryFolder.count %> folders</p>
+
+<p>Most popular keywords:</p>
+<ul>
+  <% @popular_keywords.each do |keyword| %>
+    <li><%= keyword.name %></li>
+  <% end %>
+</ul>
+
+<p>Recent keywords:</p>
+<ul>
+  <% @recent_keywords.each do |keyword| %>
+    <li><%= keyword.name %></li>
+  <% end %>
+</ul>
