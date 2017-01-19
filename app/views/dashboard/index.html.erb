@@ -1,12 +1,11 @@
 <h1>Lightroom Analysis</h1>
 
-<p><%= AdobeImage.count %> images in <%= AgLibraryFolder.count %> folders.</p>
-
-<p><%= @video_files %> video files.</p>
-
-<p><%= @flashed_images %> images shot using flash.</p>
-
-<p><%= AgLibraryKeyword.count %> keywords with <%= AgLibraryKeywordImage.count %> occurrences.</p>
+<ul>
+  <li><%= AdobeImage.count %> images in <%= AgLibraryFolder.count %> folders.</li>
+  <li><%= @video_files %> video files.</li>
+  <li><%= @flashed_images %> images shot using flash.</li>
+  <li><%= AgLibraryKeyword.count %> keywords with <%= AgLibraryKeywordImage.count %> occurrences.</li>
+</ul>
 
 <table>
   <tr>

@@ -23,6 +23,7 @@ body {
   h3 {
     color: $dark-green;
     font-family: $heading-font;
+    border-bottom: 1px solid $dark-green;
   }
 
   .stats {
