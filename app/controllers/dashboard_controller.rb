@@ -21,6 +21,7 @@ class DashboardController < ApplicationController
 
     @popular_isos_with_cameras = AgHarvestedExifMetadata.popular_isos_with_cameras(10)
     @popular_focal_lengths_with_cameras = AgHarvestedExifMetadata.popular_focal_lengths_with_cameras(10)
+    @popular_lenses_with_cameras = AgHarvestedExifMetadata.popular_lenses_with_cameras(10)
 
     @popular_crop_sizes = AdobeImageDevelopSetting.popular_crop_sizes(10)
     @popular_white_balances = AdobeImageDevelopSetting.popular_white_balances(10)

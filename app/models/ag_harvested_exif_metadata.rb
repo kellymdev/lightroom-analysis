@@ -30,7 +30,7 @@ class AgHarvestedExifMetadata < ApplicationRecord
 
     frequencies[0..(limit - 1)].map do |lens|
       {
-        lens: AgInternedExifLens.find_by(id_local: lens.first),
+        lens: find_lens(lens.first),
         frequency: lens.second
       }
     end
@@ -99,6 +99,20 @@ class AgHarvestedExifMetadata < ApplicationRecord
     end.compact
   end
 
+  def self.popular_lenses_with_cameras(limit)
+    frequencies = calculate_frequencies(lenses_with_cameras)
+
+    frequencies[0..(limit - 1)].map do |camera|
+      next unless camera.first.first
+
+      {
+        camera: find_camera(camera.first.first),
+        lens: find_lens(camera.first.second),
+        frequency: camera.second
+      }
+    end
+  end
+
   def self.image_count_using_flash
     AgHarvestedExifMetadata.select { |image| image.flashFired == 1 }.count
   end
@@ -107,6 +121,10 @@ class AgHarvestedExifMetadata < ApplicationRecord
 
   def self.find_camera(camera_id)
     AgInternedExifCameraModel.find_by(id_local: camera_id)
+  end
+
+  def self.find_lens(lens_id)
+    AgInternedExifLens.find_by(id_local: lens_id)
   end
 
   def self.focal_lengths
@@ -139,5 +157,9 @@ class AgHarvestedExifMetadata < ApplicationRecord
 
   def self.isos_with_cameras
     AgHarvestedExifMetadata.pluck(:cameraModelRef, :isoSpeedRating).compact
+  end
+
+  def self.lenses_with_cameras
+    AgHarvestedExifMetadata.pluck(:cameraModelRef, :lensRef).compact
   end
 end
