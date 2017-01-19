@@ -1,82 +1,67 @@
 class AgHarvestedExifMetadata < ApplicationRecord
+  extend FrequencyCalculator
+
   self.table_name = 'AgHarvestedExifMetadata'
 
   def self.popular_apertures(limit)
-    frequencies = frequencies(apertures)
-    sorted = sort_by_frequency(frequencies)
+    frequencies = calculate_frequencies(apertures)
 
-    sorted[0..(limit - 1)].map do |aperture|
-      next unless aperture
-
+    frequencies[0..(limit - 1)].map do |aperture|
       {
         aperture: aperture.first,
         frequency: aperture.second
       }
-    end.compact
+    end
   end
 
   def self.popular_focal_lengths(limit)
-    frequencies = frequencies(focal_lengths)
-    sorted = sort_by_frequency(frequencies)
+    frequencies = calculate_frequencies(focal_lengths)
 
-    sorted[0..(limit - 1)].map do |focal_length|
-      next unless focal_length
-
+    frequencies[0..(limit - 1)].map do |focal_length|
       {
         focal_length: focal_length.first,
         frequency: focal_length.second
       }
-    end.compact
+    end
   end
 
   def self.popular_lenses(limit)
-    frequencies = frequencies(lenses)
-    sorted = sort_by_frequency(frequencies)
+    frequencies = calculate_frequencies(lenses)
 
-    sorted[0..(limit - 1)].map do |lens|
-      next unless lens
-
+    frequencies[0..(limit - 1)].map do |lens|
       {
         lens: AgInternedExifLens.find_by(id_local: lens.first),
         frequency: lens.second
       }
-    end.compact
+    end
   end
 
   def self.popular_isos(limit)
-    frequencies = frequencies(isos)
-    sorted = sort_by_frequency(frequencies)
+    frequencies = calculate_frequencies(isos)
 
-    sorted[0..(limit - 1)].map do |iso|
-      next unless iso
-
+    frequencies[0..(limit - 1)].map do |iso|
       {
         iso: iso.first.to_i,
         frequency: iso.second
       }
-    end.compact
+    end
   end
 
   def self.popular_shutterspeeds(limit)
-    frequencies = frequencies(shutterspeeds)
-    sorted = sort_by_frequency(frequencies)
+    frequencies = calculate_frequencies(shutterspeeds)
 
-    sorted[0..(limit - 1)].map do |shutterspeed|
-      next unless shutterspeed
-
+    frequencies[0..(limit - 1)].map do |shutterspeed|
       {
         shutterspeed: shutterspeed.first,
         frequency: shutterspeed.second
       }
-    end.compact
+    end
   end
 
   def self.popular_cameras(limit)
-    frequencies = frequencies(cameras)
-    sorted = sort_by_frequency(frequencies)
+    frequencies = calculate_frequencies(cameras)
 
-    sorted[0..(limit - 1)].map do |camera|
-      next unless camera
+    frequencies[0..(limit - 1)].map do |camera|
       next unless camera.first
 
       {
@@ -91,24 +76,6 @@ class AgHarvestedExifMetadata < ApplicationRecord
   end
 
   private
-
-  def self.frequencies(data)
-    frequencies = {}
-
-    data.each do |item|
-      if frequencies.has_key?(item)
-        frequencies[item] += 1
-      else
-        frequencies[item] = 1
-      end
-    end
-
-    frequencies
-  end
-
-  def self.sort_by_frequency(data)
-    data.sort_by { |item, frequency| frequency }.reverse
-  end
 
   def self.focal_lengths
     AgHarvestedExifMetadata.pluck(:focalLength).compact
