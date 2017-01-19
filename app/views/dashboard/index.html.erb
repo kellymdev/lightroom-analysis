@@ -33,4 +33,15 @@
       </ul>
     </td>
   </tr>
+
+  <tr>
+    <td>
+      <p>Most popular apertures:</p>
+      <ul>
+        <% @popular_apertures.each do |aperture| %>
+          <li><%= aperture %></li>
+        <% end %>
+      </ul>
+    </td>
+  </tr>
 </table>
