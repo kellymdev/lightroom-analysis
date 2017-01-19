@@ -43,5 +43,23 @@
         <% end %>
       </ul>
     </td>
+
+    <td>
+      <p>Most popular focal lengths:</p>
+      <ul>
+        <% @popular_focal_lengths.each do |focal_length| %>
+          <li><%= focal_length %></li>
+        <% end %>
+      </ul>
+    </td>
+
+    <td>
+      <p>Most popular lenses:</p>
+      <ul>
+        <% @popular_lenses.each do |lens| %>
+          <li><%= lens.value %></li>
+        <% end %>
+      </ul>
+    </td>
   </tr>
 </table>

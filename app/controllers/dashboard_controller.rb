@@ -5,5 +5,7 @@ class DashboardController < ApplicationController
     @paired_keywords = AgLibraryKeywordCooccurrence.paired_keywords(10)
 
     @popular_apertures = AgHarvestedExifMetadata.popular_apertures(10)
+    @popular_focal_lengths = AgHarvestedExifMetadata.popular_focal_lengths(10)
+    @popular_lenses = AgHarvestedExifMetadata.popular_lenses(10)
   end
 end
