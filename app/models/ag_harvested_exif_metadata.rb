@@ -25,7 +25,7 @@ class AgHarvestedExifMetadata < ApplicationRecord
 
     sorted[0..(limit - 1)].map do |lens|
       AgInternedExifLens.find_by(id_local: lens.first)
-    end.compact
+    end
   end
 
   def self.popular_isos(limit)
@@ -35,6 +35,24 @@ class AgHarvestedExifMetadata < ApplicationRecord
     sorted[0..(limit - 1)].map do |iso|
       iso.first.to_i
     end
+  end
+
+  def self.popular_shutterspeeds(limit)
+    frequencies = frequencies(shutterspeeds)
+    sorted = sort_by_frequency(frequencies)
+
+    sorted[0..(limit - 1)].map do |shutterspeed|
+      shutterspeed.first
+    end
+  end
+
+  def self.popular_cameras(limit)
+    frequencies = frequencies(cameras)
+    sorted = sort_by_frequency(frequencies)
+
+    sorted[0..(limit - 1)].map do |camera|
+      AgInternedExifCameraModel.find_by(id_local: camera.first)
+    end.compact
   end
 
   private
@@ -71,5 +89,13 @@ class AgHarvestedExifMetadata < ApplicationRecord
 
   def self.isos
     AgHarvestedExifMetadata.pluck(:isoSpeedRating)
+  end
+
+  def self.shutterspeeds
+    AgHarvestedExifMetadata.pluck(:shutterSpeed)
+  end
+
+  def self.cameras
+    AgHarvestedExifMetadata.pluck(:cameraModelRef)
   end
 end

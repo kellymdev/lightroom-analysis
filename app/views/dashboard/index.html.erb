@@ -72,5 +72,23 @@
         <% end %>
       </ul>
     </td>
+
+    <td>
+      <p>Most popular shutterspeeds:</p>
+      <ul>
+        <% @popular_shutterspeeds.each do |shutterspeed| %>
+          <li><%= shutterspeed %></li>
+        <% end %>
+      </ul>
+    </td>
+
+    <td>
+      <p>Most popular cameras:</p>
+      <ul>
+        <% @popular_cameras.each do |camera| %>
+          <li><%= camera.value %></li>
+        <% end %>
+      </ul>
+    </td>
   </tr>
 </table>
