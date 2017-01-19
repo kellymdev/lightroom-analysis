@@ -12,7 +12,7 @@ class AgLibraryKeywordCooccurrence < ApplicationRecord
       hash = {
         tag1: AgLibraryKeyword.find_by(id_local: pair.tag1),
         tag2: AgLibraryKeyword.find_by(id_local: pair.tag2),
-        frequency: pair.value
+        frequency: pair.value.to_i
       }
 
       keywords << hash

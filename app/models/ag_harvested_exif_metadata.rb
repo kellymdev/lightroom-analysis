@@ -86,6 +86,10 @@ class AgHarvestedExifMetadata < ApplicationRecord
     end.compact
   end
 
+  def self.image_count_using_flash
+    AgHarvestedExifMetadata.select { |image| image.flashFired == 1 }.count
+  end
+
   private
 
   def self.frequencies(data)
