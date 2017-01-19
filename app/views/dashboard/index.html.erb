@@ -47,6 +47,24 @@
         <% end %>
       </ul>
     </td>
+
+    <td>
+      <p>Most popular ratings:</p>
+      <ul>
+        <% @popular_ratings.each do |rating| %>
+          <li><%= rating[:rating] %> <span class="stats">(<%= rating[:frequency] %>)</span></li>
+        <% end %>
+      </ul>
+    </td>
+
+    <td>
+      <p>Most popular update counts:</p>
+      <ul>
+        <% @popular_update_counts.each do |update_count| %>
+          <li><%= update_count[:update_count] %> <span class="stats">(<%= update_count[:frequency] %>)</span></li>
+        <% end %>
+      </ul>
+    </td>
   </tr>
 
   <tr>

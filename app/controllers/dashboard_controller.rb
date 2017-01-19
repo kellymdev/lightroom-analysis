@@ -3,7 +3,9 @@ class DashboardController < ApplicationController
     @flashed_images = AgHarvestedExifMetadata.image_count_using_flash
     @video_files = AgVideoInfo.video_file_count
 
-    @popular_file_formats = AdobeImage.popular_file_formats(10)
+    @popular_file_formats = AdobeImage.popular_file_formats(5)
+    @popular_ratings = AdobeImage.popular_ratings(5)
+    @popular_update_counts = AdobeImage.popular_update_counts(5)
 
     @popular_keywords = AgLibraryKeyword.popular_keywords(15)
     @recent_keywords = AgLibraryKeywordPopularity.recent_keywords(15)

@@ -19,7 +19,7 @@ class AgHarvestedExifMetadata < ApplicationRecord
 
     frequencies[0..(limit - 1)].map do |focal_length|
       {
-        focal_length: focal_length.first,
+        focal_length: focal_length.first.to_i,
         frequency: focal_length.second
       }
     end
