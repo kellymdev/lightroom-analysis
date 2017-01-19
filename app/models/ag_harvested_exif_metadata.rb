@@ -111,26 +111,26 @@ class AgHarvestedExifMetadata < ApplicationRecord
   end
 
   def self.focal_lengths
-    AgHarvestedExifMetadata.pluck(:focalLength)
+    AgHarvestedExifMetadata.pluck(:focalLength).compact
   end
 
   def self.apertures
-    AgHarvestedExifMetadata.pluck(:aperture)
+    AgHarvestedExifMetadata.pluck(:aperture).compact
   end
 
   def self.lenses
-    AgHarvestedExifMetadata.pluck(:lensRef)
+    AgHarvestedExifMetadata.pluck(:lensRef).compact
   end
 
   def self.isos
-    AgHarvestedExifMetadata.pluck(:isoSpeedRating)
+    AgHarvestedExifMetadata.pluck(:isoSpeedRating).compact
   end
 
   def self.shutterspeeds
-    AgHarvestedExifMetadata.pluck(:shutterSpeed)
+    AgHarvestedExifMetadata.pluck(:shutterSpeed).compact
   end
 
   def self.cameras
-    AgHarvestedExifMetadata.pluck(:cameraModelRef)
+    AgHarvestedExifMetadata.pluck(:cameraModelRef).compact
   end
 end

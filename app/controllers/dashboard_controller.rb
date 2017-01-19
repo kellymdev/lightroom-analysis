@@ -15,5 +15,6 @@ class DashboardController < ApplicationController
     @popular_cameras = AgHarvestedExifMetadata.popular_cameras(10)
 
     @popular_crop_sizes = AdobeImageDevelopSetting.popular_crop_sizes(10)
+    @popular_white_balances = AdobeImageDevelopSetting.popular_white_balances(10)
   end
 end

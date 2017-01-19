@@ -105,5 +105,14 @@
         <% end %>
       </ul>
     </td>
+
+    <td>
+      <p>Most popular white balances:</p>
+      <ul>
+        <% @popular_white_balances.each do |white_balance| %>
+          <li><%= white_balance[:white_balance] %> <span class="stats">(<%= white_balance[:frequency] %>)</span></li>
+        <% end %>
+      </ul>
+    </td>
   </tr>
 </table>
