@@ -11,7 +11,7 @@
 <table>
   <tr>
     <td>
-      <p>Most popular keywords:</p>
+      <h3>Most popular keywords:</h3>
       <ul>
         <% @popular_keywords.each do |keyword| %>
           <li><%= keyword[:tag].name %> <span class="stats">(<%= keyword[:frequency] %>)</span></li>
@@ -20,7 +20,7 @@
     </td>
 
     <td>
-      <p>Recent keywords:</p>
+      <h3>Recent keywords:</h3>
       <ul>
         <% @recent_keywords.each do |keyword| %>
           <li><%= keyword.name %></li>
@@ -29,7 +29,7 @@
     </td>
 
     <td>
-      <p>Commonly paired keywords:</p>
+      <h3>Commonly paired keywords:</h3>
       <ul>
         <% @paired_keywords.each do |pair| %>
           <li><%= pair[:tag1].name %>, <%= pair[:tag2].name %> <span class="stats">(<%= pair[:frequency] %>)</span></li>
@@ -40,7 +40,7 @@
 
   <tr>
     <td>
-      <p>Most popular file formats:</p>
+      <h3>Most popular file formats:</h3>
       <ul>
         <% @popular_file_formats.each do |file_format| %>
           <li><%= file_format[:format] %> <span class="stats">(<%= file_format[:frequency] %>)</span></li>
@@ -49,7 +49,7 @@
     </td>
 
     <td>
-      <p>Most popular ratings:</p>
+      <h3>Most popular ratings:</h3>
       <ul>
         <% @popular_ratings.each do |rating| %>
           <li><%= rating[:rating] %> <span class="stats">(<%= rating[:frequency] %>)</span></li>
@@ -58,7 +58,7 @@
     </td>
 
     <td>
-      <p>Most popular update counts:</p>
+      <h3>Most popular update counts:</h3>
       <ul>
         <% @popular_update_counts.each do |update_count| %>
           <li><%= update_count[:update_count] %> <span class="stats">(<%= update_count[:frequency] %>)</span></li>
@@ -69,7 +69,7 @@
 
   <tr>
     <td>
-      <p>Most popular apertures:</p>
+      <h3>Most popular apertures:</h3>
       <ul>
         <% @popular_apertures.each do |aperture| %>
           <li><%= aperture[:aperture] %> <span class="stats">(<%= aperture[:frequency] %>)</span></li>
@@ -78,7 +78,7 @@
     </td>
 
     <td>
-      <p>Most popular focal lengths:</p>
+      <h3>Most popular focal lengths:</h3>
       <ul>
         <% @popular_focal_lengths.each do |focal_length| %>
           <li><%= focal_length[:focal_length] %> <span class="stats">(<%= focal_length[:frequency] %>)</span></li>
@@ -87,7 +87,7 @@
     </td>
 
     <td>
-      <p>Most popular lenses:</p>
+      <h3>Most popular lenses:</h3>
       <ul>
         <% @popular_lenses.each do |lens| %>
           <li><%= lens[:lens].value %> <span class="stats">(<%= lens[:frequency] %>)</span></li>
@@ -98,7 +98,7 @@
 
   <tr>
     <td>
-      <p>Most popular isos:</p>
+      <h3>Most popular isos:</h3>
       <ul>
         <% @popular_isos.each do |iso| %>
           <li><%= iso[:iso] %> <span class="stats">(<%= iso[:frequency] %>)</span></li>
@@ -107,7 +107,7 @@
     </td>
 
     <td>
-      <p>Most popular shutterspeeds:</p>
+      <h3>Most popular shutterspeeds:</h3>
       <ul>
         <% @popular_shutterspeeds.each do |shutterspeed| %>
           <li><%= shutterspeed[:shutterspeed] %> <span class="stats">(<%= shutterspeed[:frequency] %>)</span></li>
@@ -116,7 +116,7 @@
     </td>
 
     <td>
-      <p>Most popular cameras:</p>
+      <h3>Most popular cameras:</h3>
       <ul>
         <% @popular_cameras.each do |camera| %>
           <li><%= camera[:camera].value %> <span class="stats">(<%= camera[:frequency] %>)</span></li>
@@ -127,7 +127,7 @@
 
   <tr>
     <td>
-      <p>Most popular isos by camera:</p>
+      <h3>Most popular isos by camera:</h3>
       <ul>
         <% @popular_isos_with_cameras.each do |camera| %>
           <li><%= camera[:camera].value %> - <%= camera[:iso] %> <span class="stats">(<%= camera[:frequency] %>)</span></li>
@@ -136,7 +136,7 @@
     </td>
 
     <td>
-      <p>Most popular focal lengths by camera:</p>
+      <h3>Most popular focal lengths by camera:</h3>
       <ul>
         <% @popular_focal_lengths_with_cameras.each do |camera| %>
           <li><%= camera[:camera].value %> - <%= camera[:focal_length] %> <span class="stats">(<%= camera[:frequency] %>)</span></li>
@@ -145,7 +145,7 @@
     </td>
 
     <td>
-      <p>Most popular lenses by camera:</p>
+      <h3>Most popular lenses by camera:</h3>
       <ul>
         <% @popular_lenses_with_cameras.each do |camera| %>
           <li><%= camera[:camera].value %> - <%= camera[:lens].value %> <span class="stats">(<%= camera[:frequency] %>)</span></li>
@@ -156,7 +156,7 @@
 
   <tr>
     <td>
-      <p>Most popular cropped sizes:</p>
+      <h3>Most popular cropped sizes:</h3>
       <ul>
         <% @popular_crop_sizes.each do |crop_size| %>
           <li><%= crop_size[:width] %> x <%= crop_size[:height] %> <span class="stats">(<%= crop_size[:frequency] %>)</span></li>
@@ -165,7 +165,7 @@
     </td>
 
     <td>
-      <p>Most popular white balances:</p>
+      <h3>Most popular white balances:</h3>
       <ul>
         <% @popular_white_balances.each do |white_balance| %>
           <li><%= white_balance[:white_balance] %> <span class="stats">(<%= white_balance[:frequency] %>)</span></li>

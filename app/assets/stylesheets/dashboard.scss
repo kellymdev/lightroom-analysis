@@ -1,0 +1,31 @@
+// Colours
+$dark-grey: #41434A;
+$dark-green: #6E9489;
+$light-brown: #DEDCC3;
+$cream: #F2F1E9;
+$dark-brown: #877963;
+
+// Fonts
+$title-font: 'Pacifico', cursive;
+$heading-font: 'Nunito', sans-serif;
+$body-font: 'Quicksand', sans-serif;
+
+body {
+  background-color: $cream;
+  color: $dark-grey;
+  font-family: $body-font;
+
+  h1 {
+    color: $dark-brown;
+    font-family: $title-font;
+  }
+
+  h3 {
+    color: $dark-green;
+    font-family: $heading-font;
+  }
+
+  .stats {
+    color: $dark-green;
+  }
+}
