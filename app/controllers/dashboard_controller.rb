@@ -13,5 +13,7 @@ class DashboardController < ApplicationController
     @popular_isos = AgHarvestedExifMetadata.popular_isos(10)
     @popular_shutterspeeds = AgHarvestedExifMetadata.popular_shutterspeeds(10)
     @popular_cameras = AgHarvestedExifMetadata.popular_cameras(10)
+
+    @popular_crop_sizes = AdobeImageDevelopSetting.popular_crop_sizes(10)
   end
 end

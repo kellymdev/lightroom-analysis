@@ -95,4 +95,15 @@
       </ul>
     </td>
   </tr>
+
+  <tr>
+    <td>
+      <p>Most popular cropped sizes:</p>
+      <ul>
+        <% @popular_crop_sizes.each do |crop_size| %>
+          <li><%= crop_size[:width] %> x <%= crop_size[:height] %> <span class="stats">(<%= crop_size[:frequency] %>)</span></li>
+        <% end %>
+      </ul>
+    </td>
+  </tr>
 </table>
