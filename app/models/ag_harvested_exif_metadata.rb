@@ -6,8 +6,13 @@ class AgHarvestedExifMetadata < ApplicationRecord
     sorted = sort_by_frequency(frequencies)
 
     sorted[0..(limit - 1)].map do |aperture|
-      aperture.first
-    end
+      next unless aperture
+
+      {
+        aperture: aperture.first,
+        frequency: aperture.second
+      }
+    end.compact
   end
 
   def self.popular_focal_lengths(limit)
@@ -15,8 +20,13 @@ class AgHarvestedExifMetadata < ApplicationRecord
     sorted = sort_by_frequency(frequencies)
 
     sorted[0..(limit - 1)].map do |focal_length|
-      focal_length.first
-    end
+      next unless focal_length
+
+      {
+        focal_length: focal_length.first,
+        frequency: focal_length.second
+      }
+    end.compact
   end
 
   def self.popular_lenses(limit)
@@ -24,8 +34,13 @@ class AgHarvestedExifMetadata < ApplicationRecord
     sorted = sort_by_frequency(frequencies)
 
     sorted[0..(limit - 1)].map do |lens|
-      AgInternedExifLens.find_by(id_local: lens.first)
-    end
+      next unless lens
+
+      {
+        lens: AgInternedExifLens.find_by(id_local: lens.first),
+        frequency: lens.second
+      }
+    end.compact
   end
 
   def self.popular_isos(limit)
@@ -33,8 +48,13 @@ class AgHarvestedExifMetadata < ApplicationRecord
     sorted = sort_by_frequency(frequencies)
 
     sorted[0..(limit - 1)].map do |iso|
-      iso.first.to_i
-    end
+      next unless iso
+
+      {
+        iso: iso.first.to_i,
+        frequency: iso.second
+      }
+    end.compact
   end
 
   def self.popular_shutterspeeds(limit)
@@ -42,8 +62,13 @@ class AgHarvestedExifMetadata < ApplicationRecord
     sorted = sort_by_frequency(frequencies)
 
     sorted[0..(limit - 1)].map do |shutterspeed|
-      shutterspeed.first
-    end
+      next unless shutterspeed
+
+      {
+        shutterspeed: shutterspeed.first,
+        frequency: shutterspeed.second
+      }
+    end.compact
   end
 
   def self.popular_cameras(limit)
@@ -51,7 +76,13 @@ class AgHarvestedExifMetadata < ApplicationRecord
     sorted = sort_by_frequency(frequencies)
 
     sorted[0..(limit - 1)].map do |camera|
-      AgInternedExifCameraModel.find_by(id_local: camera.first)
+      next unless camera
+      next unless camera.first
+
+      {
+        camera: AgInternedExifCameraModel.find_by(id_local: camera.first),
+        frequency: camera.second
+      }
     end.compact
   end
 

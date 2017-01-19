@@ -9,7 +9,13 @@ class AgLibraryKeywordCooccurrence < ApplicationRecord
     paired_tags.each_with_index do |pair, index|
       next if index % 2 == 0
 
-      keywords << [AgLibraryKeyword.find_by(id_local: pair.tag1), AgLibraryKeyword.find_by(id_local: pair.tag2)]
+      hash = {
+        tag1: AgLibraryKeyword.find_by(id_local: pair.tag1),
+        tag2: AgLibraryKeyword.find_by(id_local: pair.tag2),
+        frequency: pair.value
+      }
+
+      keywords << hash
     end
 
     keywords

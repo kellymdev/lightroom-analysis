@@ -10,8 +10,13 @@ class AgLibraryKeyword < ApplicationRecord
     sorted = frequencies.sort_by { |tag, frequency| frequency }.reverse
 
     sorted[0..(limit - 1)].map do |tag|
-      AgLibraryKeyword.find_by(id_local: tag)
-    end
+      next unless tag
+
+      {
+        tag: AgLibraryKeyword.find_by(id_local: tag.first),
+        frequency: tag.second
+      }
+    end.compact
   end
 
   private
