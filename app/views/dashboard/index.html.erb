@@ -2,16 +2,35 @@
 
 <p><%= AdobeImage.count %> images in <%= AgLibraryFolder.count %> folders</p>
 
-<p>Most popular keywords:</p>
-<ul>
-  <% @popular_keywords.each do |keyword| %>
-    <li><%= keyword.name %></li>
-  <% end %>
-</ul>
+<p><%= AgLibraryKeyword.count %> keywords with <%= AgLibraryKeywordImage.count %> occurrences.</p>
 
-<p>Recent keywords:</p>
-<ul>
-  <% @recent_keywords.each do |keyword| %>
-    <li><%= keyword.name %></li>
-  <% end %>
-</ul>
+<table>
+  <tr>
+    <td>
+      <p>Most popular keywords:</p>
+      <ul>
+        <% @popular_keywords.each do |keyword| %>
+          <li><%= keyword.name %></li>
+        <% end %>
+      </ul>
+    </td>
+
+    <td>
+      <p>Recent keywords:</p>
+      <ul>
+        <% @recent_keywords.each do |keyword| %>
+          <li><%= keyword.name %></li>
+        <% end %>
+      </ul>
+    </td>
+
+    <td>
+      <p>Commonly paired keywords:</p>
+      <ul>
+        <% @paired_keywords.each do |pair| %>
+          <li><%= pair.first.name %>, <%= pair.second.name %></li>
+        <% end %>
+      </ul>
+    </td>
+  </tr>
+</table>
