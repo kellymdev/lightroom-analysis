@@ -65,7 +65,35 @@ class AgHarvestedExifMetadata < ApplicationRecord
       next unless camera.first
 
       {
-        camera: AgInternedExifCameraModel.find_by(id_local: camera.first),
+        camera: find_camera(camera.first),
+        frequency: camera.second
+      }
+    end.compact
+  end
+
+  def self.popular_focal_lengths_with_cameras(limit)
+    frequencies = calculate_frequencies(focal_lengths_with_cameras)
+
+    frequencies[0..(limit - 1)].map do |camera|
+      next unless camera.first.first
+
+      {
+        camera: find_camera(camera.first.first),
+        focal_length: camera.first.second.to_i,
+        frequency: camera.second
+      }
+    end.compact
+  end
+
+  def self.popular_isos_with_cameras(limit)
+    frequencies = calculate_frequencies(isos_with_cameras)
+
+    frequencies[0..(limit - 1)].map do |camera|
+      next unless camera.first.first
+
+      {
+        camera: find_camera(camera.first.first),
+        iso: camera.first.second.to_i,
         frequency: camera.second
       }
     end.compact
@@ -76,6 +104,10 @@ class AgHarvestedExifMetadata < ApplicationRecord
   end
 
   private
+
+  def self.find_camera(camera_id)
+    AgInternedExifCameraModel.find_by(id_local: camera_id)
+  end
 
   def self.focal_lengths
     AgHarvestedExifMetadata.pluck(:focalLength).compact
@@ -99,5 +131,13 @@ class AgHarvestedExifMetadata < ApplicationRecord
 
   def self.cameras
     AgHarvestedExifMetadata.pluck(:cameraModelRef).compact
+  end
+
+  def self.focal_lengths_with_cameras
+    AgHarvestedExifMetadata.pluck(:cameraModelRef, :focalLength).compact
+  end
+
+  def self.isos_with_cameras
+    AgHarvestedExifMetadata.pluck(:cameraModelRef, :isoSpeedRating).compact
   end
 end

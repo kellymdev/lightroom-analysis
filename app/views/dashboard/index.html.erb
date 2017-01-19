@@ -98,7 +98,7 @@
 
   <tr>
     <td>
-      <p>Most popular iso's:</p>
+      <p>Most popular isos:</p>
       <ul>
         <% @popular_isos.each do |iso| %>
           <li><%= iso[:iso] %> <span class="stats">(<%= iso[:frequency] %>)</span></li>
@@ -120,6 +120,26 @@
       <ul>
         <% @popular_cameras.each do |camera| %>
           <li><%= camera[:camera].value %> <span class="stats">(<%= camera[:frequency] %>)</span></li>
+        <% end %>
+      </ul>
+    </td>
+  </tr>
+
+  <tr>
+    <td>
+      <p>Most popular isos by camera:</p>
+      <ul>
+        <% @popular_isos_with_cameras.each do |camera| %>
+          <li><%= camera[:camera].value %> - <%= camera[:iso] %> <span class="stats">(<%= camera[:frequency] %>)</span></li>
+        <% end %>
+      </ul>
+    </td>
+
+    <td>
+      <p>Most popular focal lengths by camera:</p>
+      <ul>
+        <% @popular_focal_lengths_with_cameras.each do |camera| %>
+          <li><%= camera[:camera].value %> - <%= camera[:focal_length] %> <span class="stats">(<%= camera[:frequency] %>)</span></li>
         <% end %>
       </ul>
     </td>
