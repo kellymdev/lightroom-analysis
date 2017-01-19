@@ -40,6 +40,17 @@
 
   <tr>
     <td>
+      <p>Most popular file formats:</p>
+      <ul>
+        <% @popular_file_formats.each do |file_format| %>
+          <li><%= file_format[:format] %> <span class="stats">(<%= file_format[:frequency] %>)</span></li>
+        <% end %>
+      </ul>
+    </td>
+  </tr>
+
+  <tr>
+    <td>
       <p>Most popular apertures:</p>
       <ul>
         <% @popular_apertures.each do |aperture| %>
