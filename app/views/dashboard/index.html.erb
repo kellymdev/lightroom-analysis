@@ -62,4 +62,15 @@
       </ul>
     </td>
   </tr>
+
+  <tr>
+    <td>
+      <p>Most popular iso's:</p>
+      <ul>
+        <% @popular_isos.each do |iso| %>
+          <li><%= iso %></li>
+        <% end %>
+      </ul>
+    </td>
+  </tr>
 </table>

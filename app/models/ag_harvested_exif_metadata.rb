@@ -24,9 +24,17 @@ class AgHarvestedExifMetadata < ApplicationRecord
     sorted = sort_by_frequency(frequencies)
 
     sorted[0..(limit - 1)].map do |lens|
-      require 'byebug'; byebug
       AgInternedExifLens.find_by(id_local: lens.first)
     end.compact
+  end
+
+  def self.popular_isos(limit)
+    frequencies = frequencies(isos)
+    sorted = sort_by_frequency(frequencies)
+
+    sorted[0..(limit - 1)].map do |iso|
+      iso.first.to_i
+    end
   end
 
   private
@@ -46,7 +54,7 @@ class AgHarvestedExifMetadata < ApplicationRecord
   end
 
   def self.sort_by_frequency(data)
-    data.sort_by { |item, frequency| frequency }
+    data.sort_by { |item, frequency| frequency }.reverse
   end
 
   def self.focal_lengths
@@ -59,5 +67,9 @@ class AgHarvestedExifMetadata < ApplicationRecord
 
   def self.lenses
     AgHarvestedExifMetadata.pluck(:lensRef)
+  end
+
+  def self.isos
+    AgHarvestedExifMetadata.pluck(:isoSpeedRating)
   end
 end
