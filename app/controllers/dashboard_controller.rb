@@ -1,10 +1,11 @@
 class DashboardController < ApplicationController
   def index
     @flashed_images = AgHarvestedExifMetadata.image_count_using_flash
+    @video_files = AgVideoInfo.video_file_count
 
-    @popular_keywords = AgLibraryKeyword.popular_keywords(10)
-    @recent_keywords = AgLibraryKeywordPopularity.recent_keywords(10)
-    @paired_keywords = AgLibraryKeywordCooccurrence.paired_keywords(10)
+    @popular_keywords = AgLibraryKeyword.popular_keywords(15)
+    @recent_keywords = AgLibraryKeywordPopularity.recent_keywords(15)
+    @paired_keywords = AgLibraryKeywordCooccurrence.paired_keywords(15)
 
     @popular_apertures = AgHarvestedExifMetadata.popular_apertures(10)
     @popular_focal_lengths = AgHarvestedExifMetadata.popular_focal_lengths(10)
