@@ -164,6 +164,15 @@
     </td>
 
     <td>
+      <h3>Most popular development steps:</h3>
+      <ul>
+        <% @popular_develop_steps.each do |step| %>
+          <li><%= step[:develop_step] %> <span class="stats">(<%= step[:frequency] %>)</span></li>
+        <% end %>
+      </ul>
+    </td>
+
+    <td>
       <h3>Most popular white balances:</h3>
       <ul>
         <% @popular_white_balances.each do |white_balance| %>
