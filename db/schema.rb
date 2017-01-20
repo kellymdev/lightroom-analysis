@@ -491,9 +491,9 @@ ActiveRecord::Schema.define(version: 0) do
   end
 
   create_table "AgLibraryKeywordCooccurrence", primary_key: "id_local", force: :cascade do |t|
-    t. "tag1",  default: "",  null: false
-    t. "tag2",  default: "",  null: false
-    t. "value", default: "0", null: false
+    t.float "tag1",  default: "",  null: false
+    t.float "tag2",  default: "",  null: false
+    t.float "value", default: "0", null: false
     t.index ["tag1", "tag2"], name: "index_AgLibraryKeywordCooccurrence_tagsLookup"
     t.index ["tag1", "value", "tag2"], name: "index_AgLibraryKeywordCooccurrence_tag1Search"
     t.index ["value"], name: "index_AgLibraryKeywordCooccurrence_valueIndex"
@@ -507,9 +507,9 @@ ActiveRecord::Schema.define(version: 0) do
   end
 
   create_table "AgLibraryKeywordPopularity", primary_key: "id_local", force: :cascade do |t|
-    t. "occurrences", default: "0", null: false
-    t. "popularity",  default: "0", null: false
-    t. "tag",         default: "",  null: false
+    t.float "occurrences", default: "0", null: false
+    t.float "popularity",  default: "0", null: false
+    t.float "tag",         default: "",  null: false
     t.index ["popularity"], name: "index_AgLibraryKeywordPopularity_popularity"
     t.index ["tag"], name: "sqlite_autoindex_AgLibraryKeywordPopularity_1", unique: true
   end
