@@ -631,41 +631,41 @@ ActiveRecord::Schema.define(version: 0) do
   end
 
   create_table "AgPhotoPropertySpec", primary_key: "id_local", force: :cascade do |t|
-    t. "id_global",                        null: false
-    t. "flattenedAttributes"
-    t. "key",                 default: "", null: false
-    t. "pluginVersion",       default: "", null: false
-    t. "sourcePlugin",        default: "", null: false
-    t. "userVisibleName"
+    t.string "id_global",                        null: false
+    t.string "flattenedAttributes"
+    t.string "key",                 default: "", null: false
+    t.float "pluginVersion",       default: "", null: false
+    t.string "sourcePlugin",        default: "", null: false
+    t.string "userVisibleName"
     t.index ["id_global"], name: "sqlite_autoindex_AgPhotoPropertySpec_1", unique: true
     t.index ["sourcePlugin", "key", "pluginVersion"], name: "index_AgPhotoPropertySpec_pluginKey", unique: true
   end
 
   create_table "AgPublishListenerWorklist", primary_key: "id_local", force: :cascade do |t|
-    t. "taskID",     default: "",        null: false
-    t. "taskStatus", default: "pending", null: false
-    t. "whenPosted", default: "",        null: false
+    t.string "taskID",     default: "",        null: false
+    t.string "taskStatus", default: "pending", null: false
+    t.string "whenPosted", default: "",        null: false
     t.index ["taskID", "whenPosted", "taskStatus"], name: "index_AgPublishListenerWorklist_taskIDCluster"
     t.index ["taskID"], name: "sqlite_autoindex_AgPublishListenerWorklist_1", unique: true
     t.index ["taskStatus", "whenPosted", "taskID"], name: "index_AgPublishListenerWorklist_statusCluster"
   end
 
   create_table "AgRemotePhoto", primary_key: "id_local", force: :cascade do |t|
-    t.        "id_global",                            null: false
+    t.string        "id_global",                            null: false
     t.integer "collection",             default: 0,   null: false
-    t.        "commentCount"
-    t.        "developSettingsDigest"
-    t.        "fileContentsHash"
-    t.        "fileModTimestamp"
-    t.        "metadataDigest"
-    t.        "mostRecentCommentTime"
-    t.        "orientation"
+    t.float        "commentCount"
+    t.string        "developSettingsDigest"
+    t.string        "fileContentsHash"
+    t.string        "fileModTimestamp"
+    t.string        "metadataDigest"
+    t.string        "mostRecentCommentTime"
+    t.string        "orientation"
     t.integer "photo",                  default: 0,   null: false
-    t.        "photoNeedsUpdating",     default: "2"
-    t.        "publishCount"
-    t.        "remoteId"
-    t.        "serviceAggregateRating"
-    t.        "url"
+    t.string        "photoNeedsUpdating",     default: "2"
+    t.string        "publishCount"
+    t.string        "remoteId"
+    t.string        "serviceAggregateRating"
+    t.string        "url"
     t.index ["collection", "photo"], name: "index_AgRemotePhoto_collectionPhoto", unique: true
     t.index ["collection", "photoNeedsUpdating"], name: "index_AgRemotePhoto_collectionNeedsUpdating"
     t.index ["collection", "remoteId"], name: "index_AgRemotePhoto_collectionRemoteId", unique: true
@@ -674,10 +674,10 @@ ActiveRecord::Schema.define(version: 0) do
   end
 
   create_table "AgSearchablePhotoProperty", primary_key: "id_local", force: :cascade do |t|
-    t.        "id_global",                        null: false
-    t.        "dataType"
-    t.        "internalValue"
-    t.        "lc_idx_internalValue"
+    t.string        "id_global",                        null: false
+    t.string        "dataType"
+    t.string        "internalValue"
+    t.string        "lc_idx_internalValue"
     t.integer "photo",                default: 0, null: false
     t.integer "propertySpec",         default: 0, null: false
     t.index ["id_global"], name: "sqlite_autoindex_AgSearchablePhotoProperty_1", unique: true
@@ -688,11 +688,11 @@ ActiveRecord::Schema.define(version: 0) do
   end
 
   create_table "AgSearchablePhotoPropertyArrayElement", primary_key: "id_local", force: :cascade do |t|
-    t.        "id_global",                         null: false
-    t.        "arrayIndex",           default: "", null: false
-    t.        "dataType"
-    t.        "internalValue"
-    t.        "lc_idx_internalValue"
+    t.string        "id_global",                         null: false
+    t.string        "arrayIndex",           default: "", null: false
+    t.string        "dataType"
+    t.string        "internalValue"
+    t.string        "lc_idx_internalValue"
     t.integer "photo",                default: 0,  null: false
     t.integer "propertySpec",         default: 0,  null: false
     t.index ["id_global"], name: "sqlite_autoindex_AgSearchablePhotoPropertyArrayElement_1", unique: true
@@ -703,9 +703,9 @@ ActiveRecord::Schema.define(version: 0) do
   end
 
   create_table "AgSpecialSourceContent", primary_key: "id_local", force: :cascade do |t|
-    t. "content"
-    t. "owningModule"
-    t. "source",       default: "", null: false
+    t.string "content"
+    t.string "owningModule"
+    t.string "source",       default: "", null: false
     t.index ["owningModule"], name: "index_AgSpecialSourceContent_owningModule"
     t.index ["source", "owningModule"], name: "index_AgSpecialSourceContent_sourceModule", unique: true
   end
@@ -714,22 +714,22 @@ ActiveRecord::Schema.define(version: 0) do
   end
 
   create_table "AgVideoInfo", primary_key: "id_local", force: :cascade do |t|
-    t.        "duration"
-    t.        "frame_rate"
+    t.string        "duration"
+    t.string        "frame_rate"
     t.integer "has_audio",                default: 1,                                   null: false
     t.integer "has_video",                default: 1,                                   null: false
     t.integer "image",                    default: 0,                                   null: false
-    t.        "poster_frame",             default: "0000000000000000/0000000000000001", null: false
+    t.string        "poster_frame",             default: "0000000000000000/0000000000000001", null: false
     t.integer "poster_frame_set_by_user", default: 0,                                   null: false
-    t.        "trim_end",                 default: "0000000000000000/0000000000000001", null: false
-    t.        "trim_start",               default: "0000000000000000/0000000000000001", null: false
+    t.string        "trim_end",                 default: "0000000000000000/0000000000000001", null: false
+    t.string        "trim_start",               default: "0000000000000000/0000000000000001", null: false
     t.index ["image"], name: "index_AgVideoInfo_image"
   end
 
   create_table "sqlite_stat1", id: false, force: :cascade do |t|
-    t. "tbl"
-    t. "idx"
-    t. "stat"
+    t.string "tbl"
+    t.string "idx"
+    t.string "stat"
   end
 
 end
