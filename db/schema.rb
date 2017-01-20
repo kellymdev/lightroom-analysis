@@ -13,99 +13,99 @@
 ActiveRecord::Schema.define(version: 0) do
 
   create_table "Adobe_AdditionalMetadata", primary_key: "id_local", force: :cascade do |t|
-    t.        "id_global",                                          null: false
+    t.string  "id_global",                                          null: false
     t.integer "additionalInfoSet",         default: 0,              null: false
     t.integer "embeddedXmp",               default: 0,              null: false
     t.integer "externalXmpIsDirty",        default: 0,              null: false
     t.integer "image"
     t.integer "incrementalWhiteBalance",   default: 0,              null: false
-    t.        "internalXmpDigest"
+    t.string  "internalXmpDigest"
     t.integer "isRawFile",                 default: 0,              null: false
-    t.        "lastSynchronizedHash"
-    t.        "lastSynchronizedTimestamp", default: "-63113817600", null: false
-    t.        "metadataPresetID"
-    t.        "metadataVersion"
+    t.string  "lastSynchronizedHash"
+    t.float   "lastSynchronizedTimestamp", default: "-63113817600", null: false
+    t.string  "metadataPresetID"
+    t.float   "metadataVersion"
     t.integer "monochrome",                default: 0,              null: false
-    t.        "xmp",                       default: "",             null: false
+    t.string  "xmp",                       default: "",             null: false
     t.index ["id_global"], name: "sqlite_autoindex_Adobe_AdditionalMetadata_1", unique: true
     t.index ["image", "externalXmpIsDirty"], name: "index_Adobe_AdditionalMetadata_imageAndStatus"
   end
 
   create_table "Adobe_imageDevelopBeforeSettings", primary_key: "id_local", force: :cascade do |t|
-    t.        "beforeDigest"
-    t.        "beforeHasDevelopAdjustments"
-    t.        "beforePresetID"
-    t.        "beforeText"
+    t.string  "beforeDigest"
+    t.float   "beforeHasDevelopAdjustments"
+    t.string  "beforePresetID"
+    t.string  "beforeText"
     t.integer "developSettings"
     t.index ["developSettings"], name: "index_Adobe_imageDevelopBeforeSettings_developSettings"
   end
 
   create_table "Adobe_imageDevelopSettings", primary_key: "id_local", force: :cascade do |t|
     t.integer "allowFastRender"
-    t.        "beforeSettingsIDCache"
-    t.        "croppedHeight"
-    t.        "croppedWidth"
-    t.        "digest"
-    t.        "fileHeight"
-    t.        "fileWidth"
+    t.float   "beforeSettingsIDCache"
+    t.float   "croppedHeight"
+    t.float   "croppedWidth"
+    t.string  "digest"
+    t.float   "fileHeight"
+    t.float   "fileWidth"
     t.integer "grayscale"
     t.integer "hasDevelopAdjustments"
-    t.        "hasDevelopAdjustmentsEx"
-    t.        "historySettingsID"
+    t.float   "hasDevelopAdjustmentsEx"
+    t.string  "historySettingsID"
     t.integer "image"
-    t.        "processVersion"
-    t.        "settingsID"
-    t.        "snapshotID"
-    t.        "text"
-    t.        "validatedForVersion"
-    t.        "whiteBalance"
+    t.string  "processVersion"
+    t.string  "settingsID"
+    t.string  "snapshotID"
+    t.string  "text"
+    t.float   "validatedForVersion"
+    t.string  "whiteBalance"
     t.index ["digest"], name: "index_Adobe_imageDevelopSettings_digest"
     t.index ["image"], name: "index_Adobe_imageDevelopSettings_image"
   end
 
   create_table "Adobe_imageProofSettings", primary_key: "id_local", force: :cascade do |t|
-    t.        "colorProfile"
+    t.string  "colorProfile"
     t.integer "image"
-    t.        "renderingIntent"
+    t.string  "renderingIntent"
     t.index ["image"], name: "index_Adobe_imageProofSettings_image"
   end
 
   create_table "Adobe_imageProperties", primary_key: "id_local", force: :cascade do |t|
-    t.        "id_global",        null: false
+    t.string  "id_global",        null: false
     t.integer "image"
-    t.        "propertiesString"
+    t.string  "propertiesString"
     t.index ["id_global"], name: "sqlite_autoindex_Adobe_imageProperties_1", unique: true
     t.index ["image"], name: "index_Adobe_imageProperties_image"
   end
 
   create_table "Adobe_images", primary_key: "id_local", force: :cascade do |t|
-    t.        "id_global",                                       null: false
-    t.        "aspectRatioCache",       default: "-1",           null: false
-    t.        "captureTime"
-    t.        "colorLabels",            default: "",             null: false
-    t.        "copyCreationTime",       default: "-63113817600", null: false
-    t.        "copyName"
-    t.        "copyReason"
-    t.        "developSettingsIDCache"
-    t.        "fileFormat",             default: "unset",        null: false
-    t.        "fileHeight"
-    t.        "fileWidth"
+    t.string  "id_global",                                       null: false
+    t.float   "aspectRatioCache",       default: "-1",           null: false
+    t.string  "captureTime"
+    t.string  "colorLabels",            default: "",             null: false
+    t.float   "copyCreationTime",       default: "-63113817600", null: false
+    t.string  "copyName"
+    t.string  "copyReason"
+    t.float   "developSettingsIDCache"
+    t.string  "fileFormat",             default: "unset",        null: false
+    t.float   "fileHeight"
+    t.float   "fileWidth"
     t.integer "hasMissingSidecars"
     t.integer "masterImage"
-    t.        "orientation"
-    t.        "originalCaptureTime"
+    t.string   "orientation"
+    t.string   "originalCaptureTime"
     t.integer "originalRootEntity"
-    t.        "panningDistanceH"
-    t.        "panningDistanceV"
-    t.        "pick",                   default: "0",            null: false
-    t.        "positionInFolder",       default: "z",            null: false
-    t.        "propertiesCache"
-    t.        "pyramidIDCache"
-    t.        "rating"
+    t.float   "panningDistanceH"
+    t.float   "panningDistanceV"
+    t.float   "pick",                   default: "0",            null: false
+    t.string  "positionInFolder",       default: "z",            null: false
+    t.float   "propertiesCache"
+    t.string   "pyramidIDCache"
+    t.float   "rating"
     t.integer "rootFile",               default: 0,              null: false
-    t.        "sidecarStatus"
-    t.        "touchCount",             default: "0",            null: false
-    t.        "touchTime",              default: "0",            null: false
+    t.float   "sidecarStatus"
+    t.float    "touchCount",             default: "0",            null: false
+    t.float   "touchTime",              default: "0",            null: false
     t.index ["captureTime"], name: "index_Adobe_images_captureTime"
     t.index ["id_global"], name: "sqlite_autoindex_Adobe_images_1", unique: true
     t.index ["masterImage"], name: "index_Adobe_images_masterImage"
@@ -115,67 +115,67 @@ ActiveRecord::Schema.define(version: 0) do
   end
 
   create_table "Adobe_libraryImageDevelopHistoryStep", primary_key: "id_local", force: :cascade do |t|
-    t.        "id_global",             null: false
-    t.        "dateCreated"
-    t.        "digest"
-    t.        "hasDevelopAdjustments"
+    t.string   "id_global",             null: false
+    t.float   "dateCreated"
+    t.string   "digest"
+    t.float    "hasDevelopAdjustments"
     t.integer "image"
-    t.        "name"
-    t.        "relValueString"
-    t.        "text"
-    t.        "valueString"
+    t.string   "name"
+    t.string   "relValueString"
+    t.string   "text"
+    t.string    "valueString"
     t.index ["id_global"], name: "sqlite_autoindex_Adobe_libraryImageDevelopHistoryStep_1", unique: true
     t.index ["image", "dateCreated"], name: "index_Adobe_libraryImageDevelopHistoryStep_imageDateCreated"
   end
 
   create_table "Adobe_libraryImageDevelopSnapshot", primary_key: "id_local", force: :cascade do |t|
-    t.        "id_global",             null: false
-    t.        "digest"
-    t.        "hasDevelopAdjustments"
+    t.string  "id_global",             null: false
+    t.string   "digest"
+    t.string   "hasDevelopAdjustments"
     t.integer "image"
-    t.        "locked"
-    t.        "name"
-    t.        "snapshotID"
-    t.        "text"
+    t.string   "locked"
+    t.string   "name"
+    t.string   "snapshotID"
+    t.string   "text"
     t.index ["id_global"], name: "sqlite_autoindex_Adobe_libraryImageDevelopSnapshot_1", unique: true
     t.index ["image"], name: "index_Adobe_libraryImageDevelopSnapshot_image"
   end
 
   create_table "Adobe_namedIdentityPlate", primary_key: "id_local", force: :cascade do |t|
-    t. "id_global",               null: false
-    t. "description"
-    t. "identityPlate"
-    t. "identityPlateHash"
-    t. "moduleFont"
-    t. "moduleSelectedTextColor"
-    t. "moduleTextColor"
+    t.string "id_global",               null: false
+    t.string "description"
+    t.string "identityPlate"
+    t.string "identityPlateHash"
+    t.string "moduleFont"
+    t.string "moduleSelectedTextColor"
+    t.string "moduleTextColor"
     t.index ["description"], name: "index_Adobe_namedIdentityPlate_description"
     t.index ["id_global"], name: "sqlite_autoindex_Adobe_namedIdentityPlate_1", unique: true
     t.index ["identityPlateHash"], name: "index_Adobe_namedIdentityPlate_identityPlateHash"
   end
 
   create_table "Adobe_variables", primary_key: "id_local", force: :cascade do |t|
-    t. "id_global", null: false
-    t. "name"
-    t. "value"
+    t.string "id_global", null: false
+    t.string "name"
+    t.string "value"
     t.index ["id_global"], name: "sqlite_autoindex_Adobe_variables_1", unique: true
     t.index ["name"], name: "index_Adobe_variables_name"
   end
 
   create_table "Adobe_variablesTable", primary_key: "id_local", force: :cascade do |t|
-    t. "id_global",              null: false
-    t. "name"
-    t. "type"
-    t. "value",     default: "", null: false
+    t.string "id_global",              null: false
+    t.string "name"
+    t.string "type"
+    t.string "value",     default: "", null: false
     t.index ["id_global"], name: "sqlite_autoindex_Adobe_variablesTable_1", unique: true
   end
 
   create_table "AgFolderContent", primary_key: "id_local", force: :cascade do |t|
-    t.        "id_global",                    null: false
+    t.string        "id_global",                    null: false
     t.integer "containingFolder", default: 0, null: false
-    t.        "content"
-    t.        "name"
-    t.        "owningModule"
+    t.string        "content"
+    t.string        "name"
+    t.string       "owningModule"
     t.index ["containingFolder"], name: "index_AgFolderContent_containingFolder"
     t.index ["id_global"], name: "sqlite_autoindex_AgFolderContent_1", unique: true
     t.index ["owningModule"], name: "index_AgFolderContent_owningModule"
@@ -196,21 +196,21 @@ ActiveRecord::Schema.define(version: 0) do
 
   create_table "AgHarvestedExifMetadata", primary_key: "id_local", force: :cascade do |t|
     t.integer "image"
-    t.        "aperture"
+    t.float    "aperture"
     t.integer "cameraModelRef"
     t.integer "cameraSNRef"
-    t.        "dateDay"
-    t.        "dateMonth"
-    t.        "dateYear"
+    t.float    "dateDay"
+    t.float    "dateMonth"
+    t.float    "dateYear"
     t.integer "flashFired"
-    t.        "focalLength"
-    t.        "gpsLatitude"
-    t.        "gpsLongitude"
-    t.        "gpsSequence",    default: "0", null: false
+    t.float    "focalLength"
+    t.string    "gpsLatitude"
+    t.string   "gpsLongitude"
+    t.float    "gpsSequence",    default: "0", null: false
     t.integer "hasGPS"
-    t.        "isoSpeedRating"
+    t.float   "isoSpeedRating"
     t.integer "lensRef"
-    t.        "shutterSpeed"
+    t.float  "shutterSpeed"
     t.index ["aperture"], name: "index_AgHarvestedExifMetadata_aperture"
     t.index ["cameraModelRef"], name: "index_AgHarvestedExifMetadata_cameraModelRef"
     t.index ["cameraSNRef"], name: "index_AgHarvestedExifMetadata_cameraSNRef"
@@ -232,8 +232,8 @@ ActiveRecord::Schema.define(version: 0) do
     t.integer "creatorRef"
     t.integer "isoCountryCodeRef"
     t.integer "jobIdentifierRef"
-    t.        "locationDataOrigination", default: "unset", null: false
-    t.        "locationGPSSequence",     default: "-1",    null: false
+    t.string   "locationDataOrigination", default: "unset", null: false
+    t.float    "locationGPSSequence",     default: "-1",    null: false
     t.integer "locationRef"
     t.integer "stateRef"
     t.index ["cityRef"], name: "index_AgHarvestedIptcMetadata_cityRef"
@@ -248,80 +248,80 @@ ActiveRecord::Schema.define(version: 0) do
   end
 
   create_table "AgHarvestedMetadataWorklist", primary_key: "id_local", force: :cascade do |t|
-    t. "taskID",     default: "",        null: false
-    t. "taskStatus", default: "pending", null: false
-    t. "whenPosted", default: "",        null: false
+    t.string "taskID",     default: "",        null: false
+    t.string "taskStatus", default: "pending", null: false
+    t.string "whenPosted", default: "",        null: false
     t.index ["taskID", "whenPosted", "taskStatus"], name: "index_AgHarvestedMetadataWorklist_taskIDCluster"
     t.index ["taskID"], name: "sqlite_autoindex_AgHarvestedMetadataWorklist_1", unique: true
     t.index ["taskStatus", "whenPosted", "taskID"], name: "index_AgHarvestedMetadataWorklist_statusCluster"
   end
 
   create_table "AgInternedExifCameraModel", primary_key: "id_local", force: :cascade do |t|
-    t. "searchIndex"
-    t. "value"
+    t.string "searchIndex"
+    t.string "value"
     t.index ["searchIndex"], name: "index_AgInternedExifCameraModel_searchIndex"
     t.index ["value"], name: "index_AgInternedExifCameraModel_value"
   end
 
   create_table "AgInternedExifCameraSN", primary_key: "id_local", force: :cascade do |t|
-    t. "searchIndex"
-    t. "value"
+    t.string "searchIndex"
+    t.string "value"
     t.index ["searchIndex"], name: "index_AgInternedExifCameraSN_searchIndex"
     t.index ["value"], name: "index_AgInternedExifCameraSN_value"
   end
 
   create_table "AgInternedExifLens", primary_key: "id_local", force: :cascade do |t|
-    t. "searchIndex"
-    t. "value"
+    t.string "searchIndex"
+    t.string "value"
     t.index ["searchIndex"], name: "index_AgInternedExifLens_searchIndex"
     t.index ["value"], name: "index_AgInternedExifLens_value"
   end
 
   create_table "AgInternedIptcCity", primary_key: "id_local", force: :cascade do |t|
-    t. "searchIndex"
-    t. "value"
+    t.string "searchIndex"
+    t.string "value"
     t.index ["searchIndex"], name: "index_AgInternedIptcCity_searchIndex"
     t.index ["value"], name: "index_AgInternedIptcCity_value"
   end
 
   create_table "AgInternedIptcCountry", primary_key: "id_local", force: :cascade do |t|
-    t. "searchIndex"
-    t. "value"
+    t.string "searchIndex"
+    t.string "value"
     t.index ["searchIndex"], name: "index_AgInternedIptcCountry_searchIndex"
     t.index ["value"], name: "index_AgInternedIptcCountry_value"
   end
 
   create_table "AgInternedIptcCreator", primary_key: "id_local", force: :cascade do |t|
-    t. "searchIndex"
-    t. "value"
+    t.string "searchIndex"
+    t.string "value"
     t.index ["searchIndex"], name: "index_AgInternedIptcCreator_searchIndex"
     t.index ["value"], name: "index_AgInternedIptcCreator_value"
   end
 
   create_table "AgInternedIptcIsoCountryCode", primary_key: "id_local", force: :cascade do |t|
-    t. "searchIndex"
-    t. "value"
+    t.string "searchIndex"
+    t.string "value"
     t.index ["searchIndex"], name: "index_AgInternedIptcIsoCountryCode_searchIndex"
     t.index ["value"], name: "index_AgInternedIptcIsoCountryCode_value"
   end
 
   create_table "AgInternedIptcJobIdentifier", primary_key: "id_local", force: :cascade do |t|
-    t. "searchIndex"
-    t. "value"
+    t.string "searchIndex"
+    t.string "value"
     t.index ["searchIndex"], name: "index_AgInternedIptcJobIdentifier_searchIndex"
     t.index ["value"], name: "index_AgInternedIptcJobIdentifier_value"
   end
 
   create_table "AgInternedIptcLocation", primary_key: "id_local", force: :cascade do |t|
-    t. "searchIndex"
-    t. "value"
+    t.string "searchIndex"
+    t.string "value"
     t.index ["searchIndex"], name: "index_AgInternedIptcLocation_searchIndex"
     t.index ["value"], name: "index_AgInternedIptcLocation_value"
   end
 
   create_table "AgInternedIptcState", primary_key: "id_local", force: :cascade do |t|
-    t. "searchIndex"
-    t. "value"
+    t.string "searchIndex"
+    t.string "value"
     t.index ["searchIndex"], name: "index_AgInternedIptcState_searchIndex"
     t.index ["value"], name: "index_AgInternedIptcState_value"
   end
@@ -330,20 +330,20 @@ ActiveRecord::Schema.define(version: 0) do
   end
 
   create_table "AgLibraryCollection", primary_key: "id_local", force: :cascade do |t|
-    t.        "creationId", default: "", null: false
-    t.        "genealogy",  default: "", null: false
-    t.        "imageCount"
-    t.        "name",       default: "", null: false
+    t.string        "creationId", default: "", null: false
+    t.string        "genealogy",  default: "", null: false
+    t.float        "imageCount"
+    t.string     "name",       default: "", null: false
     t.integer "parent"
-    t.        "systemOnly", default: "", null: false
+    t.float       "systemOnly", default: "", null: false
     t.index ["genealogy"], name: "index_AgLibraryCollection_genealogy"
     t.index ["parent", "name"], name: "index_AgLibraryCollection_parentAndName"
   end
 
   create_table "AgLibraryCollectionContent", primary_key: "id_local", force: :cascade do |t|
     t.integer "collection",   default: 0, null: false
-    t.        "content"
-    t.        "owningModule"
+    t.string     "content"
+    t.string    "owningModule"
     t.index ["collection"], name: "index_AgLibraryCollectionContent_collection"
     t.index ["owningModule"], name: "index_AgLibraryCollectionContent_owningModule"
   end
@@ -351,17 +351,17 @@ ActiveRecord::Schema.define(version: 0) do
   create_table "AgLibraryCollectionImage", primary_key: "id_local", force: :cascade do |t|
     t.integer "collection",           default: 0,   null: false
     t.integer "image",                default: 0,   null: false
-    t.        "pick",                 default: "0", null: false
-    t.        "positionInCollection"
+    t.float   "pick",                 default: "0", null: false
+    t.float   "positionInCollection"
     t.index ["collection"], name: "index_AgLibraryCollectionImage_collection"
     t.index ["image", "collection"], name: "index_AgLibraryCollectionImage_imageCollection"
   end
 
   create_table "AgLibraryCollectionStack", primary_key: "id_local", force: :cascade do |t|
-    t.        "id_global",               null: false
+    t.string    "id_global",               null: false
     t.integer "collapsed",  default: 0,  null: false
     t.integer "collection", default: 0,  null: false
-    t.        "text",       default: "", null: false
+    t.string    "text",       default: "", null: false
     t.index ["collection", "collapsed"], name: "index_AgLibraryCollectionStack_stacksForCollection"
     t.index ["id_global"], name: "sqlite_autoindex_AgLibraryCollectionStack_1", unique: true
   end
@@ -378,7 +378,7 @@ ActiveRecord::Schema.define(version: 0) do
     t.integer "collapsed",  default: 0,  null: false
     t.integer "collection", default: 0,  null: false
     t.integer "image",      default: 0,  null: false
-    t.        "position",   default: "", null: false
+    t.string        "position",   default: "", null: false
     t.integer "stack",      default: 0,  null: false
     t.index ["collection", "collapsed", "stack", "position", "image"], name: "index_AgLibraryCollectionStackImage_orderByCollapseThenStackThenPosition"
     t.index ["collection", "image", "stack", "position", "collapsed"], name: "index_AgLibraryCollectionStackImage_getStackFromImage"
@@ -389,21 +389,21 @@ ActiveRecord::Schema.define(version: 0) do
   end
 
   create_table "AgLibraryFile", primary_key: "id_local", force: :cascade do |t|
-    t.        "id_global",                             null: false
-    t.        "baseName",                 default: "", null: false
-    t.        "errorMessage"
-    t.        "errorTime"
-    t.        "extension",                default: "", null: false
-    t.        "externalModTime"
+    t.string      "id_global",                             null: false
+    t.string        "baseName",                 default: "", null: false
+    t.string        "errorMessage"
+    t.string        "errorTime"
+    t.string  "extension",                default: "", null: false
+    t.float        "externalModTime"
     t.integer "folder",                   default: 0,  null: false
-    t.        "idx_filename",             default: "", null: false
-    t.        "importHash"
-    t.        "lc_idx_filename",          default: "", null: false
-    t.        "lc_idx_filenameExtension", default: "", null: false
-    t.        "md5"
-    t.        "modTime"
-    t.        "originalFilename",         default: "", null: false
-    t.        "sidecarExtensions"
+    t.string        "idx_filename",             default: "", null: false
+    t.string        "importHash"
+    t.string        "lc_idx_filename",          default: "", null: false
+    t.string        "lc_idx_filenameExtension", default: "", null: false
+    t.string        "md5"
+    t.float        "modTime"
+    t.string        "originalFilename",         default: "", null: false
+    t.string        "sidecarExtensions"
     t.index ["folder"], name: "index_AgLibraryFile_folder"
     t.index ["id_global"], name: "sqlite_autoindex_AgLibraryFile_1", unique: true
     t.index ["importHash"], name: "index_AgLibraryFile_importHash"
@@ -411,17 +411,17 @@ ActiveRecord::Schema.define(version: 0) do
   end
 
   create_table "AgLibraryFolder", primary_key: "id_local", force: :cascade do |t|
-    t.        "id_global",                 null: false
-    t.        "pathFromRoot", default: "", null: false
+    t.string        "id_global",                 null: false
+    t.string        "pathFromRoot", default: "", null: false
     t.integer "rootFolder",   default: 0,  null: false
     t.index ["id_global"], name: "sqlite_autoindex_AgLibraryFolder_1", unique: true
     t.index ["rootFolder", "pathFromRoot"], name: "index_AgLibraryFolder_rootFolderAndPath", unique: true
   end
 
   create_table "AgLibraryFolderStack", primary_key: "id_local", force: :cascade do |t|
-    t.        "id_global",              null: false
+    t.string        "id_global",              null: false
     t.integer "collapsed", default: 0,  null: false
-    t.        "text",      default: "", null: false
+    t.string        "text",      default: "", null: false
     t.index ["collapsed"], name: "index_AgLibraryFolderStack_collapsed"
     t.index ["id_global"], name: "sqlite_autoindex_AgLibraryFolderStack_1", unique: true
   end
@@ -436,7 +436,7 @@ ActiveRecord::Schema.define(version: 0) do
   create_table "AgLibraryFolderStackImage", primary_key: "id_local", force: :cascade do |t|
     t.integer "collapsed", default: 0,  null: false
     t.integer "image",     default: 0,  null: false
-    t.        "position",  default: "", null: false
+    t.float        "position",  default: "", null: false
     t.integer "stack",     default: 0,  null: false
     t.index ["collapsed", "stack", "position", "image"], name: "index_AgLibraryFolderStackImage_orderByCollapseThenStackThenPosition"
     t.index ["image", "stack", "position", "collapsed"], name: "index_AgLibraryFolderStackImage_getStackFromImage"
@@ -445,25 +445,25 @@ ActiveRecord::Schema.define(version: 0) do
   end
 
   create_table "AgLibraryIPTC", primary_key: "id_local", force: :cascade do |t|
-    t.        "caption"
-    t.        "copyright"
+    t.string        "caption"
+    t.string        "copyright"
     t.integer "image",     default: 0, null: false
     t.index ["image"], name: "index_AgLibraryIPTC_image"
   end
 
   create_table "AgLibraryImageXMPUpdater", primary_key: "id_local", force: :cascade do |t|
-    t. "taskID",     default: "",        null: false
-    t. "taskStatus", default: "pending", null: false
-    t. "whenPosted", default: "",        null: false
+    t.string "taskID",     default: "",        null: false
+    t.string "taskStatus", default: "pending", null: false
+    t.string "whenPosted", default: "",        null: false
     t.index ["taskID", "whenPosted", "taskStatus"], name: "index_AgLibraryImageXMPUpdater_taskIDCluster"
     t.index ["taskID"], name: "sqlite_autoindex_AgLibraryImageXMPUpdater_1", unique: true
     t.index ["taskStatus", "whenPosted", "taskID"], name: "index_AgLibraryImageXMPUpdater_statusCluster"
   end
 
   create_table "AgLibraryImport", primary_key: "id_local", force: :cascade do |t|
-    t. "imageCount"
-    t. "importDate", default: "", null: false
-    t. "name"
+    t.float "imageCount"
+    t.string "importDate", default: "", null: false
+    t.string "name"
   end
 
   create_table "AgLibraryImportImage", primary_key: "id_local", force: :cascade do |t|
@@ -474,16 +474,16 @@ ActiveRecord::Schema.define(version: 0) do
   end
 
   create_table "AgLibraryKeyword", primary_key: "id_local", force: :cascade do |t|
-    t.        "id_global",                      null: false
-    t.        "dateCreated",     default: "",   null: false
-    t.        "genealogy",       default: "",   null: false
-    t.        "imageCountCache", default: "-1"
+    t.string        "id_global",                      null: false
+    t.float        "dateCreated",     default: "",   null: false
+    t.string        "genealogy",       default: "",   null: false
+    t.float        "imageCountCache", default: "-1"
     t.integer "includeOnExport", default: 1,    null: false
     t.integer "includeParents",  default: 1,    null: false
     t.integer "includeSynonyms", default: 1,    null: false
-    t.        "lastApplied"
-    t.        "lc_name"
-    t.        "name"
+    t.float        "lastApplied"
+    t.string        "lc_name"
+    t.string        "name"
     t.integer "parent"
     t.index ["genealogy"], name: "index_AgLibraryKeyword_genealogy"
     t.index ["id_global"], name: "sqlite_autoindex_AgLibraryKeyword_1", unique: true
@@ -516,30 +516,30 @@ ActiveRecord::Schema.define(version: 0) do
 
   create_table "AgLibraryKeywordSynonym", primary_key: "id_local", force: :cascade do |t|
     t.integer "keyword", default: 0, null: false
-    t.        "lc_name"
-    t.        "name"
+    t.float        "lc_name"
+    t.float        "name"
     t.index ["keyword"], name: "index_AgLibraryKeywordSynonym_keyword"
     t.index ["lc_name"], name: "index_AgLibraryKeywordSynonym_lc_name"
   end
 
   create_table "AgLibraryPublishedCollection", primary_key: "id_local", force: :cascade do |t|
-    t.        "creationId",          default: "", null: false
-    t.        "genealogy",           default: "", null: false
-    t.        "imageCount"
-    t.        "isDefaultCollection"
-    t.        "name",                default: "", null: false
+    t.string        "creationId",          default: "", null: false
+    t.string        "genealogy",           default: "", null: false
+    t.float        "imageCount"
+    t.string        "isDefaultCollection"
+    t.string        "name",                default: "", null: false
     t.integer "parent"
-    t.        "publishedUrl"
-    t.        "remoteCollectionId"
-    t.        "systemOnly",          default: "", null: false
+    t.string        "publishedUrl"
+    t.string        "remoteCollectionId"
+    t.string        "systemOnly",          default: "", null: false
     t.index ["genealogy"], name: "index_AgLibraryPublishedCollection_genealogy"
     t.index ["parent", "name"], name: "index_AgLibraryPublishedCollection_parentAndName"
   end
 
   create_table "AgLibraryPublishedCollectionContent", primary_key: "id_local", force: :cascade do |t|
     t.integer "collection",   default: 0, null: false
-    t.        "content"
-    t.        "owningModule"
+    t.string        "content"
+    t.string        "owningModule"
     t.index ["collection"], name: "index_AgLibraryPublishedCollectionContent_collection"
     t.index ["owningModule"], name: "index_AgLibraryPublishedCollectionContent_owningModule"
   end
@@ -547,17 +547,17 @@ ActiveRecord::Schema.define(version: 0) do
   create_table "AgLibraryPublishedCollectionImage", primary_key: "id_local", force: :cascade do |t|
     t.integer "collection",           default: 0,   null: false
     t.integer "image",                default: 0,   null: false
-    t.        "pick",                 default: "0", null: false
-    t.        "positionInCollection"
+    t.string        "pick",                 default: "0", null: false
+    t.string        "positionInCollection"
     t.index ["collection"], name: "index_AgLibraryPublishedCollectionImage_collection"
     t.index ["image", "collection"], name: "index_AgLibraryPublishedCollectionImage_imageCollection"
   end
 
   create_table "AgLibraryRootFolder", primary_key: "id_local", force: :cascade do |t|
-    t. "id_global",                            null: false
-    t. "absolutePath",            default: "", null: false
-    t. "name",                    default: "", null: false
-    t. "relativePathFromCatalog"
+    t.string "id_global",                            null: false
+    t.string "absolutePath",            default: "", null: false
+    t.string "name",                    default: "", null: false
+    t.string "relativePathFromCatalog"
     t.index ["absolutePath"], name: "sqlite_autoindex_AgLibraryRootFolder_2", unique: true
     t.index ["id_global"], name: "sqlite_autoindex_AgLibraryRootFolder_1", unique: true
   end
@@ -566,41 +566,41 @@ ActiveRecord::Schema.define(version: 0) do
   end
 
   create_table "AgMRULists", primary_key: "id_local", force: :cascade do |t|
-    t. "listID",    default: "",  null: false
-    t. "timestamp", default: "0", null: false
-    t. "value",     default: "",  null: false
+    t.string "listID",    default: "",  null: false
+    t.string "timestamp", default: "0", null: false
+    t.string "value",     default: "",  null: false
     t.index ["listID"], name: "index_AgMRULists_listID"
   end
 
   create_table "AgMetadataSearchIndex", primary_key: "id_local", force: :cascade do |t|
-    t.        "exifSearchIndex",  default: "", null: false
+    t.string        "exifSearchIndex",  default: "", null: false
     t.integer "image"
-    t.        "iptcSearchIndex",  default: "", null: false
-    t.        "otherSearchIndex", default: "", null: false
-    t.        "searchIndex",      default: "", null: false
+    t.string        "iptcSearchIndex",  default: "", null: false
+    t.string        "otherSearchIndex", default: "", null: false
+    t.string        "searchIndex",      default: "", null: false
     t.index ["image"], name: "index_AgMetadataSearchIndex_image"
   end
 
   create_table "AgOutputImageAsset", primary_key: "id_local", force: :cascade do |t|
-    t.        "assetId",    default: "", null: false
+    t.string        "assetId",    default: "", null: false
     t.integer "collection", default: 0,  null: false
     t.integer "image",      default: 0,  null: false
-    t.        "moduleId",   default: "", null: false
+    t.string        "moduleId",   default: "", null: false
     t.index ["collection", "image", "moduleId", "assetId"], name: "index_AgOutputImageAsset_findByCollectionImage"
     t.index ["image"], name: "index_AgOutputImageAsset_image"
     t.index ["moduleId", "collection", "image", "assetId"], name: "index_AgOutputImageAsset_findByCollectionGroupByImage"
   end
 
   create_table "AgPhotoComment", primary_key: "id_local", force: :cascade do |t|
-    t.        "id_global",                    null: false
-    t.        "comment"
-    t.        "commentRealname"
-    t.        "commentUsername"
-    t.        "dateCreated"
+    t.string        "id_global",                    null: false
+    t.string        "comment"
+    t.string        "commentRealname"
+    t.string        "commentUsername"
+    t.string        "dateCreated"
     t.integer "photo",           default: 0,  null: false
-    t.        "remoteId",        default: "", null: false
+    t.string        "remoteId",        default: "", null: false
     t.integer "remotePhoto"
-    t.        "url"
+    t.string        "url"
     t.index ["id_global"], name: "sqlite_autoindex_AgPhotoComment_1", unique: true
     t.index ["photo"], name: "index_AgPhotoComment_photo"
     t.index ["remoteId"], name: "index_AgPhotoComment_remoteId"
@@ -608,9 +608,9 @@ ActiveRecord::Schema.define(version: 0) do
   end
 
   create_table "AgPhotoProperty", primary_key: "id_local", force: :cascade do |t|
-    t.        "id_global",                 null: false
-    t.        "dataType"
-    t.        "internalValue"
+    t.string        "id_global",                 null: false
+    t.string        "dataType"
+    t.string        "internalValue"
     t.integer "photo",         default: 0, null: false
     t.integer "propertySpec",  default: 0, null: false
     t.index ["id_global"], name: "sqlite_autoindex_AgPhotoProperty_1", unique: true
@@ -619,10 +619,10 @@ ActiveRecord::Schema.define(version: 0) do
   end
 
   create_table "AgPhotoPropertyArrayElement", primary_key: "id_local", force: :cascade do |t|
-    t.        "id_global",                  null: false
-    t.        "arrayIndex",    default: "", null: false
-    t.        "dataType"
-    t.        "internalValue"
+    t.string        "id_global",                  null: false
+    t.string        "arrayIndex",    default: "", null: false
+    t.string        "dataType"
+    t.string        "internalValue"
     t.integer "photo",         default: 0,  null: false
     t.integer "propertySpec",  default: 0,  null: false
     t.index ["id_global"], name: "sqlite_autoindex_AgPhotoPropertyArrayElement_1", unique: true
