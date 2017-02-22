@@ -1,5 +1,5 @@
 class KeywordsController < ApplicationController
-  def popular_keywords
+  def index
     @keywords = AgLibraryKeyword.popular_keywords
   end
 end

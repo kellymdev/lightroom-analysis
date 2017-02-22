@@ -1,0 +1,50 @@
+// Colours
+$dark-grey: #41434A;
+$dark-green: #6E9489;
+$light-brown: #DEDCC3;
+$cream: #F2F1E9;
+$dark-brown: #877963;
+
+// Fonts
+$title-font: 'Pacifico', cursive;
+$heading-font: 'Nunito', sans-serif;
+$body-font: 'Quicksand', sans-serif;
+
+.bar {
+  fill: $dark-green;
+}
+
+.axis text,
+.legend,
+.axis-label {
+  font: 10px $body-font;
+}
+
+.axis path,
+.axis line {
+  fill: none;
+  stroke: $dark-green;
+  shape-rendering: crispEdges;
+}
+
+.x.axis path {
+  display: none;
+}
+
+div.tooltip {
+  position: absolute;
+  text-align: center;
+  width: 100px;
+  height: 45px;
+  padding: 2px;
+  font: 12px $body-font;
+  background: $light-brown;
+  border: 0px;
+  border-radius: 8px;
+  pointer-events: none;
+}
+
+.chart-title {
+  font: 14px $body-font;
+  text-decoration: underline;
+}

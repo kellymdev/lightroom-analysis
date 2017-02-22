@@ -18,4 +18,15 @@ class AgLibraryKeyword < ApplicationRecord
       }
     end.compact
   end
+
+  def self.keyword_list
+    keywords = self.popular_keywords(100)
+
+    keywords.map do |keyword|
+      {
+        name: keyword[:tag][:name],
+        frequency: keyword[:frequency]
+      }
+    end
+  end
 end

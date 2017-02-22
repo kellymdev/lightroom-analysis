@@ -27,7 +27,6 @@ ActiveRecord::Schema.define(version: 0) do
     t.float   "metadataVersion"
     t.integer "monochrome",                default: 0,              null: false
     t.string  "xmp",                       default: "",             null: false
-    t.index ["id_global"], name: "sqlite_autoindex_Adobe_AdditionalMetadata_1", unique: true
     t.index ["image", "externalXmpIsDirty"], name: "index_Adobe_AdditionalMetadata_imageAndStatus"
   end
 
@@ -74,7 +73,6 @@ ActiveRecord::Schema.define(version: 0) do
     t.string  "id_global",        null: false
     t.integer "image"
     t.string  "propertiesString"
-    t.index ["id_global"], name: "sqlite_autoindex_Adobe_imageProperties_1", unique: true
     t.index ["image"], name: "index_Adobe_imageProperties_image"
   end
 
@@ -107,7 +105,6 @@ ActiveRecord::Schema.define(version: 0) do
     t.float    "touchCount",             default: "0",            null: false
     t.float   "touchTime",              default: "0",            null: false
     t.index ["captureTime"], name: "index_Adobe_images_captureTime"
-    t.index ["id_global"], name: "sqlite_autoindex_Adobe_images_1", unique: true
     t.index ["masterImage"], name: "index_Adobe_images_masterImage"
     t.index ["originalRootEntity"], name: "index_Adobe_images_originalRootEntity"
     t.index ["rating", "captureTime"], name: "index_Adobe_images_ratingAndCaptureTime"
@@ -124,7 +121,6 @@ ActiveRecord::Schema.define(version: 0) do
     t.string   "relValueString"
     t.string   "text"
     t.string    "valueString"
-    t.index ["id_global"], name: "sqlite_autoindex_Adobe_libraryImageDevelopHistoryStep_1", unique: true
     t.index ["image", "dateCreated"], name: "index_Adobe_libraryImageDevelopHistoryStep_imageDateCreated"
   end
 
@@ -137,7 +133,6 @@ ActiveRecord::Schema.define(version: 0) do
     t.string   "name"
     t.string   "snapshotID"
     t.string   "text"
-    t.index ["id_global"], name: "sqlite_autoindex_Adobe_libraryImageDevelopSnapshot_1", unique: true
     t.index ["image"], name: "index_Adobe_libraryImageDevelopSnapshot_image"
   end
 
@@ -150,7 +145,6 @@ ActiveRecord::Schema.define(version: 0) do
     t.string "moduleSelectedTextColor"
     t.string "moduleTextColor"
     t.index ["description"], name: "index_Adobe_namedIdentityPlate_description"
-    t.index ["id_global"], name: "sqlite_autoindex_Adobe_namedIdentityPlate_1", unique: true
     t.index ["identityPlateHash"], name: "index_Adobe_namedIdentityPlate_identityPlateHash"
   end
 
@@ -158,7 +152,6 @@ ActiveRecord::Schema.define(version: 0) do
     t.string "id_global", null: false
     t.string "name"
     t.string "value"
-    t.index ["id_global"], name: "sqlite_autoindex_Adobe_variables_1", unique: true
     t.index ["name"], name: "index_Adobe_variables_name"
   end
 
@@ -167,7 +160,6 @@ ActiveRecord::Schema.define(version: 0) do
     t.string "name"
     t.string "type"
     t.string "value",     default: "", null: false
-    t.index ["id_global"], name: "sqlite_autoindex_Adobe_variablesTable_1", unique: true
   end
 
   create_table "AgFolderContent", primary_key: "id_local", force: :cascade do |t|
@@ -177,7 +169,6 @@ ActiveRecord::Schema.define(version: 0) do
     t.string        "name"
     t.string       "owningModule"
     t.index ["containingFolder"], name: "index_AgFolderContent_containingFolder"
-    t.index ["id_global"], name: "sqlite_autoindex_AgFolderContent_1", unique: true
     t.index ["owningModule"], name: "index_AgFolderContent_owningModule"
   end
 
@@ -252,7 +243,6 @@ ActiveRecord::Schema.define(version: 0) do
     t.string "taskStatus", default: "pending", null: false
     t.string "whenPosted", default: "",        null: false
     t.index ["taskID", "whenPosted", "taskStatus"], name: "index_AgHarvestedMetadataWorklist_taskIDCluster"
-    t.index ["taskID"], name: "sqlite_autoindex_AgHarvestedMetadataWorklist_1", unique: true
     t.index ["taskStatus", "whenPosted", "taskID"], name: "index_AgHarvestedMetadataWorklist_statusCluster"
   end
 
@@ -363,7 +353,6 @@ ActiveRecord::Schema.define(version: 0) do
     t.integer "collection", default: 0,  null: false
     t.string    "text",       default: "", null: false
     t.index ["collection", "collapsed"], name: "index_AgLibraryCollectionStack_stacksForCollection"
-    t.index ["id_global"], name: "sqlite_autoindex_AgLibraryCollectionStack_1", unique: true
   end
 
   create_table "AgLibraryCollectionStackData", id: false, force: :cascade do |t|
@@ -380,7 +369,6 @@ ActiveRecord::Schema.define(version: 0) do
     t.integer "image",      default: 0,  null: false
     t.string        "position",   default: "", null: false
     t.integer "stack",      default: 0,  null: false
-    t.index ["collection", "collapsed", "stack", "position", "image"], name: "index_AgLibraryCollectionStackImage_orderByCollapseThenStackThenPosition"
     t.index ["collection", "image", "stack", "position", "collapsed"], name: "index_AgLibraryCollectionStackImage_getStackFromImage"
     t.index ["collection", "position", "stack", "image", "collapsed"], name: "index_AgLibraryCollectionStackImage_orderByPositionThenStack"
     t.index ["collection", "stack", "position", "image", "collapsed"], name: "index_AgLibraryCollectionStackImage_orderByStackThenPosition"
@@ -405,7 +393,6 @@ ActiveRecord::Schema.define(version: 0) do
     t.string        "originalFilename",         default: "", null: false
     t.string        "sidecarExtensions"
     t.index ["folder"], name: "index_AgLibraryFile_folder"
-    t.index ["id_global"], name: "sqlite_autoindex_AgLibraryFile_1", unique: true
     t.index ["importHash"], name: "index_AgLibraryFile_importHash"
     t.index ["lc_idx_filename", "folder"], name: "index_AgLibraryFile_nameAndFolder", unique: true
   end
@@ -414,7 +401,6 @@ ActiveRecord::Schema.define(version: 0) do
     t.string        "id_global",                 null: false
     t.string        "pathFromRoot", default: "", null: false
     t.integer "rootFolder",   default: 0,  null: false
-    t.index ["id_global"], name: "sqlite_autoindex_AgLibraryFolder_1", unique: true
     t.index ["rootFolder", "pathFromRoot"], name: "index_AgLibraryFolder_rootFolderAndPath", unique: true
   end
 
@@ -423,7 +409,6 @@ ActiveRecord::Schema.define(version: 0) do
     t.integer "collapsed", default: 0,  null: false
     t.string        "text",      default: "", null: false
     t.index ["collapsed"], name: "index_AgLibraryFolderStack_collapsed"
-    t.index ["id_global"], name: "sqlite_autoindex_AgLibraryFolderStack_1", unique: true
   end
 
   create_table "AgLibraryFolderStackData", id: false, force: :cascade do |t|
@@ -438,7 +423,6 @@ ActiveRecord::Schema.define(version: 0) do
     t.integer "image",     default: 0,  null: false
     t.float        "position",  default: "", null: false
     t.integer "stack",     default: 0,  null: false
-    t.index ["collapsed", "stack", "position", "image"], name: "index_AgLibraryFolderStackImage_orderByCollapseThenStackThenPosition"
     t.index ["image", "stack", "position", "collapsed"], name: "index_AgLibraryFolderStackImage_getStackFromImage"
     t.index ["position", "stack", "image", "collapsed"], name: "index_AgLibraryFolderStackImage_orderByPositionThenStack"
     t.index ["stack", "position", "image", "collapsed"], name: "index_AgLibraryFolderStackImage_orderByStackThenPosition"
@@ -456,7 +440,6 @@ ActiveRecord::Schema.define(version: 0) do
     t.string "taskStatus", default: "pending", null: false
     t.string "whenPosted", default: "",        null: false
     t.index ["taskID", "whenPosted", "taskStatus"], name: "index_AgLibraryImageXMPUpdater_taskIDCluster"
-    t.index ["taskID"], name: "sqlite_autoindex_AgLibraryImageXMPUpdater_1", unique: true
     t.index ["taskStatus", "whenPosted", "taskID"], name: "index_AgLibraryImageXMPUpdater_statusCluster"
   end
 
@@ -486,7 +469,6 @@ ActiveRecord::Schema.define(version: 0) do
     t.string        "name"
     t.integer "parent"
     t.index ["genealogy"], name: "index_AgLibraryKeyword_genealogy"
-    t.index ["id_global"], name: "sqlite_autoindex_AgLibraryKeyword_1", unique: true
     t.index ["parent", "lc_name"], name: "index_AgLibraryKeyword_parentAndLcName"
   end
 
@@ -511,7 +493,6 @@ ActiveRecord::Schema.define(version: 0) do
     t.float "popularity",  default: "0", null: false
     t.float "tag",         default: "",  null: false
     t.index ["popularity"], name: "index_AgLibraryKeywordPopularity_popularity"
-    t.index ["tag"], name: "sqlite_autoindex_AgLibraryKeywordPopularity_1", unique: true
   end
 
   create_table "AgLibraryKeywordSynonym", primary_key: "id_local", force: :cascade do |t|
@@ -558,8 +539,6 @@ ActiveRecord::Schema.define(version: 0) do
     t.string "absolutePath",            default: "", null: false
     t.string "name",                    default: "", null: false
     t.string "relativePathFromCatalog"
-    t.index ["absolutePath"], name: "sqlite_autoindex_AgLibraryRootFolder_2", unique: true
-    t.index ["id_global"], name: "sqlite_autoindex_AgLibraryRootFolder_1", unique: true
   end
 
   create_table "AgLibraryUpdatedImages", primary_key: "image", force: :cascade do |t|
@@ -601,7 +580,6 @@ ActiveRecord::Schema.define(version: 0) do
     t.string        "remoteId",        default: "", null: false
     t.integer "remotePhoto"
     t.string        "url"
-    t.index ["id_global"], name: "sqlite_autoindex_AgPhotoComment_1", unique: true
     t.index ["photo"], name: "index_AgPhotoComment_photo"
     t.index ["remoteId"], name: "index_AgPhotoComment_remoteId"
     t.index ["remotePhoto"], name: "index_AgPhotoComment_remotePhoto"
@@ -613,7 +591,6 @@ ActiveRecord::Schema.define(version: 0) do
     t.string        "internalValue"
     t.integer "photo",         default: 0, null: false
     t.integer "propertySpec",  default: 0, null: false
-    t.index ["id_global"], name: "sqlite_autoindex_AgPhotoProperty_1", unique: true
     t.index ["photo", "propertySpec"], name: "index_AgPhotoProperty_pluginKey", unique: true
     t.index ["propertySpec"], name: "index_AgPhotoProperty_propertySpec"
   end
@@ -625,7 +602,6 @@ ActiveRecord::Schema.define(version: 0) do
     t.string        "internalValue"
     t.integer "photo",         default: 0,  null: false
     t.integer "propertySpec",  default: 0,  null: false
-    t.index ["id_global"], name: "sqlite_autoindex_AgPhotoPropertyArrayElement_1", unique: true
     t.index ["photo", "propertySpec", "arrayIndex"], name: "index_AgPhotoPropertyArrayElement_pluginKey", unique: true
     t.index ["propertySpec"], name: "index_AgPhotoPropertyArrayElement_propertySpec"
   end
@@ -637,7 +613,6 @@ ActiveRecord::Schema.define(version: 0) do
     t.float "pluginVersion",       default: "", null: false
     t.string "sourcePlugin",        default: "", null: false
     t.string "userVisibleName"
-    t.index ["id_global"], name: "sqlite_autoindex_AgPhotoPropertySpec_1", unique: true
     t.index ["sourcePlugin", "key", "pluginVersion"], name: "index_AgPhotoPropertySpec_pluginKey", unique: true
   end
 
@@ -646,7 +621,6 @@ ActiveRecord::Schema.define(version: 0) do
     t.string "taskStatus", default: "pending", null: false
     t.string "whenPosted", default: "",        null: false
     t.index ["taskID", "whenPosted", "taskStatus"], name: "index_AgPublishListenerWorklist_taskIDCluster"
-    t.index ["taskID"], name: "sqlite_autoindex_AgPublishListenerWorklist_1", unique: true
     t.index ["taskStatus", "whenPosted", "taskID"], name: "index_AgPublishListenerWorklist_statusCluster"
   end
 
@@ -669,7 +643,6 @@ ActiveRecord::Schema.define(version: 0) do
     t.index ["collection", "photo"], name: "index_AgRemotePhoto_collectionPhoto", unique: true
     t.index ["collection", "photoNeedsUpdating"], name: "index_AgRemotePhoto_collectionNeedsUpdating"
     t.index ["collection", "remoteId"], name: "index_AgRemotePhoto_collectionRemoteId", unique: true
-    t.index ["id_global"], name: "sqlite_autoindex_AgRemotePhoto_1", unique: true
     t.index ["photo"], name: "index_AgRemotePhoto_photo"
   end
 
@@ -680,8 +653,6 @@ ActiveRecord::Schema.define(version: 0) do
     t.string        "lc_idx_internalValue"
     t.integer "photo",                default: 0, null: false
     t.integer "propertySpec",         default: 0, null: false
-    t.index ["id_global"], name: "sqlite_autoindex_AgSearchablePhotoProperty_1", unique: true
-    t.index ["lc_idx_internalValue"], name: "index_AgSearchablePhotoProperty_lc_idx_internalValue"
     t.index ["photo", "propertySpec"], name: "index_AgSearchablePhotoProperty_pluginKey", unique: true
     t.index ["propertySpec", "internalValue"], name: "index_AgSearchablePhotoProperty_propertyValue"
     t.index ["propertySpec", "lc_idx_internalValue"], name: "index_AgSearchablePhotoProperty_propertyValue_lc"
@@ -695,8 +666,6 @@ ActiveRecord::Schema.define(version: 0) do
     t.string        "lc_idx_internalValue"
     t.integer "photo",                default: 0,  null: false
     t.integer "propertySpec",         default: 0,  null: false
-    t.index ["id_global"], name: "sqlite_autoindex_AgSearchablePhotoPropertyArrayElement_1", unique: true
-    t.index ["lc_idx_internalValue"], name: "index_AgSearchablePhotoPropertyArrayElement_lc_idx_internalValue"
     t.index ["photo", "propertySpec", "arrayIndex"], name: "index_AgSearchablePhotoPropertyArrayElement_pluginKey", unique: true
     t.index ["propertySpec", "internalValue"], name: "index_AgSearchablePhotoPropertyArrayElement_propertyValue"
     t.index ["propertySpec", "lc_idx_internalValue"], name: "index_AgSearchablePhotoPropertyArrayElement_propertyValue_lc"
@@ -725,11 +694,4 @@ ActiveRecord::Schema.define(version: 0) do
     t.string        "trim_start",               default: "0000000000000000/0000000000000001", null: false
     t.index ["image"], name: "index_AgVideoInfo_image"
   end
-
-  create_table "sqlite_stat1", id: false, force: :cascade do |t|
-    t.string "tbl"
-    t.string "idx"
-    t.string "stat"
-  end
-
 end

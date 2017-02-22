@@ -2,5 +2,7 @@ Rails.application.routes.draw do
   root to: 'dashboard#index'
 
   get 'dashboard', to: 'dashboard#index'
-  get 'popular_keywords', to: 'keywords#popular_keywords'
+  get 'keywords', to: 'keywords#index'
+
+  get '/graphs/keyword_data', to: 'graphs#keyword_data', defaults: { format: 'json' }
 end
