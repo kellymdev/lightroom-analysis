@@ -26,6 +26,11 @@ body {
     border-bottom: 1px solid $dark-green;
   }
 
+  a {
+    text-decoration: none;
+    color: $dark-green;
+  }
+
   .stats {
     color: $dark-green;
   }

@@ -10,7 +10,7 @@
 <table>
   <tr>
     <td>
-      <h3>Most popular keywords:</h3>
+      <h3><%= link_to "Most popular keywords:", popular_keywords_path %></h3>
       <ul>
         <% @popular_keywords.each do |keyword| %>
           <li><%= keyword[:tag].name %> <span class="stats">(<%= keyword[:frequency] %>)</span></li>

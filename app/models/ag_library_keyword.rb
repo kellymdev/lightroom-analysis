@@ -5,7 +5,7 @@ class AgLibraryKeyword < ApplicationRecord
 
   has_one :ag_library_keyword_popularity, foreign_key: 'tag'
 
-  def self.popular_keywords(limit)
+  def self.popular_keywords(limit = AgLibraryKeyword.count)
     tags = AgLibraryKeywordImage.tags_on_images
     frequencies = calculate_frequencies(tags)
 

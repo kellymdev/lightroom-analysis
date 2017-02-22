@@ -1,0 +1,15 @@
+<h2>Keywords</h2>
+
+<table class="data-table">
+  <tr>
+    <th>Keyword</th>
+    <th>Frequency</th>
+  </tr>
+
+  <% @keywords.each do |keyword| %>
+    <tr>
+      <td><%= keyword[:tag].name %></td>
+      <td><%= keyword[:frequency] %></td>
+    </tr>
+  <% end %>
+</table>

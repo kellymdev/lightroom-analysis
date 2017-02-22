@@ -8,4 +8,6 @@ To set up the database:
 
 * Rename the Lightroom database to development.sqlite3
 
+To regenerate the schema (if required):
+
 * Run 'rake db:schema:dump'
