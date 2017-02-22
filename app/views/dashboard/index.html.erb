@@ -28,7 +28,7 @@
     </td>
 
     <td>
-      <h3>Commonly paired keywords:</h3>
+      <h3><%= link_to "Commonly paired keywords:", paired_keywords_path %></h3>
       <ul>
         <% @paired_keywords.each do |pair| %>
           <li><%= pair[:tag1].name %>, <%= pair[:tag2].name %> <span class="stats">(<%= pair[:frequency] %>)</span></li>

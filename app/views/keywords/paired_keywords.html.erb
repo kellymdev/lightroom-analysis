@@ -1,0 +1,19 @@
+<h2>Paired Keywords</h2>
+
+<svg class="paired-keyword-chart" width=960 height=400></svg>
+
+<table class="data-table">
+  <tr>
+    <th>Keyword 1</th>
+    <th>Keyword 2</th>
+    <th>Frequency</th>
+  </tr>
+
+  <% @keywords.each do |keyword| %>
+    <tr>
+      <td><%= keyword[:tag1].name %></td>
+      <td><%= keyword[:tag2].name %></td>
+      <td><%= keyword[:frequency] %></td>
+    </tr>
+  <% end %>
+</table>
