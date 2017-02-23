@@ -1,0 +1,17 @@
+<h2>Focal Lengths</h2>
+
+<svg class="focal-length-chart" width=960 height=400></svg>
+
+<table class="data-table">
+  <tr>
+    <th>Focal Length</th>
+    <th>Frequency</th>
+  </tr>
+
+  <% @focal_lengths.each do |focal_length| %>
+    <tr>
+      <td><%= focal_length[:focal_length] %></td>
+      <td><%= focal_length[:frequency] %></td>
+    </tr>
+  <% end %>
+</table>

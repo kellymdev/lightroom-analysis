@@ -49,6 +49,12 @@ div.pairs-tooltip {
   width: 150px;
 }
 
+div.focal-length-tooltip {
+  @extend .tooltip;
+  width: 80px;
+  height: 34px;
+}
+
 .chart-title {
   font: 14px $body-font;
   text-decoration: underline;

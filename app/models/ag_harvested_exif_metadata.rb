@@ -14,7 +14,7 @@ class AgHarvestedExifMetadata < ApplicationRecord
     end
   end
 
-  def self.popular_focal_lengths(limit)
+  def self.popular_focal_lengths(limit = focal_lengths.count)
     frequencies = calculate_frequencies(focal_lengths)
 
     frequencies[0..(limit - 1)].map do |focal_length|

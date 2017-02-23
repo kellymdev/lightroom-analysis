@@ -77,7 +77,7 @@
     </td>
 
     <td>
-      <h3>Most popular focal lengths:</h3>
+      <h3><%= link_to "Most popular focal lengths:", focal_lengths_path %></h3>
       <ul>
         <% @popular_focal_lengths.each do |focal_length| %>
           <li><%= focal_length[:focal_length] %> <span class="stats">(<%= focal_length[:frequency] %>)</span></li>
