@@ -71,11 +71,4 @@ function drawUpdateCounts(data) {
         .duration(500)
         .style("opacity", 0);
     });
-
-  chart.append("text")
-    .attr("class", "chart-title")
-    .attr("x", (width / 2))
-    .attr("y", 0 - (margin.top / 2))
-    .attr("text-anchor", "middle")
-    .text("Update Count Frequencies");
 }
