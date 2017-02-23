@@ -67,7 +67,7 @@ class AgHarvestedExifMetadata < ApplicationRecord
     end
   end
 
-  def self.popular_cameras(limit)
+  def self.popular_cameras(limit = cameras.count)
     frequencies = calculate_frequencies(cameras)
 
     frequencies[0..(limit - 1)].map do |camera|
@@ -78,6 +78,15 @@ class AgHarvestedExifMetadata < ApplicationRecord
         frequency: camera.second
       }
     end.compact
+  end
+
+  def self.camera_list
+    popular_cameras.map do |camera|
+      {
+        camera: camera[:camera][:value],
+        frequency: camera[:frequency]
+      }
+    end
   end
 
   def self.popular_focal_lengths_with_cameras(limit)

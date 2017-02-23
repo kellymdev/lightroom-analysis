@@ -18,4 +18,8 @@ class ExifController < ApplicationController
   def shutterspeeds
     @shutterspeeds = AgHarvestedExifMetadata.popular_shutterspeeds
   end
+
+  def cameras
+    @cameras = AgHarvestedExifMetadata.popular_cameras
+  end
 end

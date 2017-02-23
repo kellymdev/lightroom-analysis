@@ -1,0 +1,17 @@
+<h2>Cameras</h2>
+
+<svg class="camera-chart" width=960 height=400></svg>
+
+<table class="data-table">
+  <tr>
+    <th>Camera Model</th>
+    <th>Frequency</th>
+  </tr>
+
+  <% @cameras.each do |camera| %>
+    <tr>
+      <td><%= camera[:camera].value %></td>
+      <td><%= camera[:frequency] %></td>
+    </tr>
+  <% end %>
+</table>

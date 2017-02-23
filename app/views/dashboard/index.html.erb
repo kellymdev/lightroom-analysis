@@ -115,7 +115,7 @@
     </td>
 
     <td>
-      <h3>Most popular cameras:</h3>
+      <h3><%= link_to "Most popular cameras:", cameras_path %></h3>
       <ul>
         <% @popular_cameras.each do |camera| %>
           <li><%= camera[:camera].value %> <span class="stats">(<%= camera[:frequency] %>)</span></li>

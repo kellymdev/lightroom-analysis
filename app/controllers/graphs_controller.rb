@@ -58,4 +58,10 @@ class GraphsController < ApplicationController
       format.json { render json: AgHarvestedExifMetadata.popular_shutterspeeds(100).as_json }
     end
   end
+
+  def camera_data
+    respond_to do |format|
+      format.json { render json: AgHarvestedExifMetadata.camera_list.as_json }
+    end
+  end
 end
