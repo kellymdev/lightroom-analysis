@@ -1,0 +1,17 @@
+<h2>Apertures</h2>
+
+<svg class="aperture-chart" width=960 height=400></svg>
+
+<table class="data-table">
+  <tr>
+    <th>Aperture</th>
+    <th>Frequency</th>
+  </tr>
+
+  <% @apertures.each do |aperture| %>
+    <tr>
+      <td><%= aperture[:aperture] %></td>
+      <td><%= aperture[:frequency] %></td>
+    </tr>
+  <% end %>
+</table>

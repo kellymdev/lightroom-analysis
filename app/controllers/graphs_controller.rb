@@ -11,9 +11,15 @@ class GraphsController < ApplicationController
     end
   end
 
+  def aperture_data
+    respond_to do |format|
+      format.json { render json: AgHarvestedExifMetadata.popular_apertures(100).as_json }
+    end
+  end
+
   def focal_length_data
     respond_to do |format|
-      format.json { render json: AgHarvestedExifMetadata.popular_focal_lengths.as_json }
+      format.json { render json: AgHarvestedExifMetadata.popular_focal_lengths(100).as_json }
     end
   end
 

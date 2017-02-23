@@ -68,7 +68,7 @@
 
   <tr>
     <td>
-      <h3>Most popular apertures:</h3>
+      <h3><%= link_to "Most popular apertures:", apertures_path %></h3>
       <ul>
         <% @popular_apertures.each do |aperture| %>
           <li><%= aperture[:aperture] %> <span class="stats">(<%= aperture[:frequency] %>)</span></li>

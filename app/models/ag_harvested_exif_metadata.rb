@@ -3,7 +3,7 @@ class AgHarvestedExifMetadata < ApplicationRecord
 
   self.table_name = 'AgHarvestedExifMetadata'
 
-  def self.popular_apertures(limit)
+  def self.popular_apertures(limit = apertures.count)
     frequencies = calculate_frequencies(apertures)
 
     frequencies[0..(limit - 1)].map do |aperture|
