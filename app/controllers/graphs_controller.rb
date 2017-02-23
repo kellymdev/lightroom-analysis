@@ -71,6 +71,12 @@ class GraphsController < ApplicationController
     end
   end
 
+  def focal_lengths_by_camera_data
+    respond_to do |format|
+      format.json { render json: AgHarvestedExifMetadata.focal_lengths_by_camera_list.as_json }
+    end
+  end
+
   def crop_size_data
     respond_to do |format|
       format.json { render json: AdobeImageDevelopSetting.crop_size_list.as_json }

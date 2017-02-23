@@ -26,4 +26,8 @@ class ExifController < ApplicationController
   def isos_by_camera
     @isos_by_camera = AgHarvestedExifMetadata.popular_isos_with_cameras
   end
+
+  def focal_lengths_by_camera
+    @focal_lengths_by_camera = AgHarvestedExifMetadata.popular_focal_lengths_with_cameras
+  end
 end

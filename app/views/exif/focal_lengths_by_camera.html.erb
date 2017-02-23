@@ -1,0 +1,19 @@
+<h2>Focal Lengths by Camera</h2>
+
+<svg class="focal-lengths-by-camera-chart" width=960 height=400></svg>
+
+<table class="data-table">
+  <tr>
+    <th>Camera</th>
+    <th>Focal Length (mm)</th>
+    <th>Frequency</th>
+  </tr>
+
+  <% @focal_lengths_by_camera.each do |focal_length| %>
+    <tr>
+      <td><%= focal_length[:camera].value %></td>
+      <td><%= focal_length[:focal_length] %></td>
+      <td><%= focal_length[:frequency] %></td>
+    </tr>
+  <% end %>
+</table>

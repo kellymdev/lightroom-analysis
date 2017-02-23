@@ -135,7 +135,7 @@
     </td>
 
     <td>
-      <h3>Most popular focal lengths by camera:</h3>
+      <h3><%= link_to "Most popular focal lengths by camera:", focal_lengths_by_camera_path %></h3>
       <ul>
         <% @popular_focal_lengths_with_cameras.each do |camera| %>
           <li><%= camera[:camera].value %> - <%= camera[:focal_length] %> <span class="stats">(<%= camera[:frequency] %>)</span></li>

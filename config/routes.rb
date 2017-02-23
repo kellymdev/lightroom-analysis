@@ -18,6 +18,7 @@ Rails.application.routes.draw do
   get 'cameras', to: 'exif#cameras'
 
   get 'isos_by_camera', to: 'exif#isos_by_camera'
+  get 'focal_lengths_by_camera', to: 'exif#focal_lengths_by_camera'
 
   get 'crop_sizes', to: 'develop_settings#crop_sizes'
   get 'develop_steps', to: 'develop_settings#develop_steps'
@@ -39,6 +40,7 @@ Rails.application.routes.draw do
   get '/graphs/camera_data', to: 'graphs#camera_data', defaults: { format: 'json' }
 
   get '/graphs/isos_by_camera_data', to: 'graphs#isos_by_camera_data', defaults: { format: 'json' }
+  get '/graphs/focal_lengths_by_camera_data', to: 'graphs#focal_lengths_by_camera_data', defaults: { format: 'json' }
 
   get '/graphs/crop_size_data', to: 'graphs#crop_size_data', defaults: { format: 'json' }
   get '/graphs/develop_step_data', to: 'graphs#develop_step_data', defaults: { format: 'json' }
