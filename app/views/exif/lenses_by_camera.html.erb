@@ -1,0 +1,19 @@
+<h2>Lenses by Camera</h2>
+
+<svg class="lenses-by-camera-chart" width=960 height=400></svg>
+
+<table class="data-table">
+  <tr>
+    <th>Camera</th>
+    <th>Lens</th>
+    <th>Frequency</th>
+  </tr>
+
+  <% @lenses_by_camera.each do |lens| %>
+    <tr>
+      <td><%= lens[:camera].value %></td>
+      <td><%= lens[:lens].value %></td>
+      <td><%= lens[:frequency] %></td>
+    </tr>
+  <% end %>
+</table>

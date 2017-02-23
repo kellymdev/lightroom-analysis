@@ -144,7 +144,7 @@
     </td>
 
     <td>
-      <h3>Most popular lenses by camera:</h3>
+      <h3><%= link_to "Most popular lenses by camera:", lenses_by_camera_path %></h3>
       <ul>
         <% @popular_lenses_with_cameras.each do |camera| %>
           <li><%= camera[:camera].value %> - <%= camera[:lens].value %> <span class="stats">(<%= camera[:frequency] %>)</span></li>
