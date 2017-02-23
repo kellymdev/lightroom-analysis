@@ -10,4 +10,10 @@ class GraphsController < ApplicationController
       format.json { render json: AgLibraryKeywordCooccurrence.pair_list.as_json }
     end
   end
+
+  def lens_data
+    respond_to do |format|
+      format.json { render json: AgHarvestedExifMetadata.lens_list.as_json }
+    end
+  end
 end

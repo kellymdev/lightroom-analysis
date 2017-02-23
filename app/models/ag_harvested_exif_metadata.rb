@@ -25,13 +25,22 @@ class AgHarvestedExifMetadata < ApplicationRecord
     end
   end
 
-  def self.popular_lenses(limit)
+  def self.popular_lenses(limit = AgInternedExifLens.count)
     frequencies = calculate_frequencies(lenses)
 
     frequencies[0..(limit - 1)].map do |lens|
       {
         lens: find_lens(lens.first),
         frequency: lens.second
+      }
+    end
+  end
+
+  def self.lens_list
+    popular_lenses.map do |lens|
+      {
+        lens: lens[:lens][:value],
+        frequency: lens[:frequency]
       }
     end
   end

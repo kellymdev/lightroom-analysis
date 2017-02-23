@@ -86,7 +86,7 @@
     </td>
 
     <td>
-      <h3>Most popular lenses:</h3>
+      <h3><%= link_to "Most popular lenses:", lenses_path %></h3>
       <ul>
         <% @popular_lenses.each do |lens| %>
           <li><%= lens[:lens].value %> <span class="stats">(<%= lens[:frequency] %>)</span></li>
