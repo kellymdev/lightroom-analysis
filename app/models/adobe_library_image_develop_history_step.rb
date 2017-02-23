@@ -14,7 +14,7 @@ class AdobeLibraryImageDevelopHistoryStep < ApplicationRecord
     end
   end
 
-  def self.popular_develop_steps_with_adjustments(limit)
+  def self.popular_develop_steps_with_adjustments(limit = history_steps_with_adjustments.count)
     frequencies = calculate_frequencies(history_steps_with_adjustments)
 
     frequencies[0..(limit - 1)].map do |step|
@@ -22,6 +22,15 @@ class AdobeLibraryImageDevelopHistoryStep < ApplicationRecord
         develop_step: step.first.first,
         adjustment: step.first.second,
         frequency: step.second
+      }
+    end
+  end
+
+  def self.adjustments_list
+    popular_develop_steps_with_adjustments(100).map do |adjustment|
+      {
+        adjustment: "#{adjustment[:develop_step]} #{adjustment[:adjustment]}",
+        frequency: adjustment[:frequency]
       }
     end
   end

@@ -1,0 +1,19 @@
+<h2>Development Steps with Adjustments</h2>
+
+<svg class="adjustment-chart" width=960 height=400></svg>
+
+<table class="data-table">
+  <tr>
+    <th>Development Step</th>
+    <th>Adjustment Value</th>
+    <th>Frequency</th>
+  </tr>
+
+  <% @adjustments.each do |adjustment| %>
+    <tr>
+      <td><%= adjustment[:develop_step] %></td>
+      <td><%= adjustment[:adjustment] %></td>
+      <td><%= adjustment[:frequency] %></td>
+    </tr>
+  <% end %>
+</table>

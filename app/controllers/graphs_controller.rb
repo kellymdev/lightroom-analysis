@@ -77,6 +77,12 @@ class GraphsController < ApplicationController
     end
   end
 
+  def adjustment_data
+    respond_to do |format|
+      format.json { render json: AdobeLibraryImageDevelopHistoryStep.adjustments_list }
+    end
+  end
+
   def white_balance_data
     respond_to do |format|
       format.json { render json: AdobeImageDevelopSetting.popular_white_balances.as_json }
