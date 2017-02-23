@@ -1,0 +1,19 @@
+<h2>Cropped Sizes</h2>
+
+<svg class="crop-size-chart" width=960 height=400></svg>
+
+<table class="data-table">
+  <tr>
+    <th>Width</th>
+    <th>Height</th>
+    <th>Frequency</th>
+  </tr>
+
+  <% @crop_sizes.each do |size| %>
+    <tr>
+      <td><%= size[:width] %></td>
+      <td><%= size[:height] %></td>
+      <td><%= size[:frequency] %></td>
+    </tr>
+  <% end %>
+</table>

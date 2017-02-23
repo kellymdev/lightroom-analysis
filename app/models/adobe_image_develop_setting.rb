@@ -3,7 +3,7 @@ class AdobeImageDevelopSetting < ApplicationRecord
 
   self.table_name = 'Adobe_imageDevelopSettings'
 
-  def self.popular_crop_sizes(limit)
+  def self.popular_crop_sizes(limit = crop_sizes.count)
     frequencies = calculate_frequencies(crop_sizes)
 
     frequencies[0..(limit - 1)].map do |crop_size|
@@ -11,6 +11,15 @@ class AdobeImageDevelopSetting < ApplicationRecord
         height: crop_size.first.first.to_i,
         width: crop_size.first.second.to_i,
         frequency: crop_size.second
+      }
+    end
+  end
+
+  def self.crop_size_list
+    popular_crop_sizes(100).map do |size|
+      {
+        size: "#{size[:width]} x #{size[:height]}",
+        frequency: size[:frequency]
       }
     end
   end

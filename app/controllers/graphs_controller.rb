@@ -65,6 +65,12 @@ class GraphsController < ApplicationController
     end
   end
 
+  def crop_size_data
+    respond_to do |format|
+      format.json { render json: AdobeImageDevelopSetting.crop_size_list.as_json }
+    end
+  end
+
   def white_balance_data
     respond_to do |format|
       format.json { render json: AdobeImageDevelopSetting.popular_white_balances.as_json }

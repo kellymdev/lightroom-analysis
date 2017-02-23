@@ -17,6 +17,7 @@ Rails.application.routes.draw do
   get 'shutterspeeds', to: 'exif#shutterspeeds'
   get 'cameras', to: 'exif#cameras'
 
+  get 'crop_sizes', to: 'develop_settings#crop_sizes'
   get 'white_balances', to: 'develop_settings#white_balances'
 
   get '/graphs/keyword_data', to: 'graphs#keyword_data', defaults: { format: 'json' }
@@ -33,5 +34,6 @@ Rails.application.routes.draw do
   get '/graphs/shutterspeed_data', to: 'graphs#shutterspeed_data', defaults: { format: 'json' }
   get '/graphs/camera_data', to: 'graphs#camera_data', defaults: { format: 'json' }
 
+  get '/graphs/crop_size_data', to: 'graphs#crop_size_data', defaults: { format: 'json' }
   get '/graphs/white_balance_data', to: 'graphs#white_balance_data', defaults: { format: 'json' }
 end

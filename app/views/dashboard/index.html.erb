@@ -155,7 +155,7 @@
 
   <tr>
     <td>
-      <h3>Most popular cropped sizes:</h3>
+      <h3><%= link_to "Most popular cropped sizes:", crop_sizes_path %></h3>
       <ul>
         <% @popular_crop_sizes.each do |crop_size| %>
           <li><%= crop_size[:width] %> x <%= crop_size[:height] %> <span class="stats">(<%= crop_size[:frequency] %>)</span></li>
