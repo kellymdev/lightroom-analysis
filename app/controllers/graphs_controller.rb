@@ -46,4 +46,10 @@ class GraphsController < ApplicationController
       format.json { render json: AgHarvestedExifMetadata.lens_list.as_json }
     end
   end
+
+  def iso_data
+    respond_to do |format|
+      format.json { render json: AgHarvestedExifMetadata.popular_isos.as_json }
+    end
+  end
 end

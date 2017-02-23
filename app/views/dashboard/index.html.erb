@@ -97,7 +97,7 @@
 
   <tr>
     <td>
-      <h3>Most popular isos:</h3>
+      <h3><%= link_to "Most popular isos:", isos_path %></h3>
       <ul>
         <% @popular_isos.each do |iso| %>
           <li><%= iso[:iso] %> <span class="stats">(<%= iso[:frequency] %>)</span></li>

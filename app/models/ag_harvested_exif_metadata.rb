@@ -45,7 +45,7 @@ class AgHarvestedExifMetadata < ApplicationRecord
     end
   end
 
-  def self.popular_isos(limit)
+  def self.popular_isos(limit = isos.count)
     frequencies = calculate_frequencies(isos)
 
     frequencies[0..(limit - 1)].map do |iso|

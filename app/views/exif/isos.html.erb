@@ -1,0 +1,17 @@
+<h2>Isos</h2>
+
+<svg class="iso-chart" width=960 height=400></svg>
+
+<table class="data-table">
+  <tr>
+    <th>Iso</th>
+    <th>Frequency</th>
+  </tr>
+
+  <% @isos.each do |iso| %>
+    <tr>
+      <td><%= iso[:iso] %></td>
+      <td><%= iso[:frequency] %></td>
+    </tr>
+  <% end %>
+</table>

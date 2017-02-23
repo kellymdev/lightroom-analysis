@@ -10,4 +10,8 @@ class ExifController < ApplicationController
   def lenses
     @lenses = AgHarvestedExifMetadata.popular_lenses
   end
+
+  def isos
+    @isos = AgHarvestedExifMetadata.popular_isos
+  end
 end
