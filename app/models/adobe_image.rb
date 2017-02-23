@@ -25,7 +25,7 @@ class AdobeImage < ApplicationRecord
     end
   end
 
-  def self.popular_update_counts(limit)
+  def self.popular_update_counts(limit = updates.count)
     frequencies = calculate_frequencies(updates)
 
     frequencies[0..(limit - 1)].map do |update_count|

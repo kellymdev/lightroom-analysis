@@ -23,6 +23,12 @@ class GraphsController < ApplicationController
     end
   end
 
+  def update_data
+    respond_to do |format|
+      format.json { render json: AdobeImage.popular_update_counts.as_json }
+    end
+  end
+
   def aperture_data
     respond_to do |format|
       format.json { render json: AgHarvestedExifMetadata.popular_apertures(100).as_json }

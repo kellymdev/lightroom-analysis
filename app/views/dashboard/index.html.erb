@@ -57,7 +57,7 @@
     </td>
 
     <td>
-      <h3>Most popular update counts:</h3>
+      <h3><%= link_to "Most popular update counts:", updates_path %></h3>
       <ul>
         <% @popular_update_counts.each do |update_count| %>
           <li><%= update_count[:update_count] %> <span class="stats">(<%= update_count[:frequency] %>)</span></li>

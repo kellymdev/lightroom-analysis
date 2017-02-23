@@ -1,0 +1,17 @@
+<h2>Update Counts</h2>
+
+<svg class="update-chart" width=960 height=400></svg>
+
+<table class="data-table">
+  <tr>
+    <th>Update Count</th>
+    <th>Frequency</th>
+  </tr>
+
+  <% @updates.each do |update| %>
+    <tr>
+      <td><%= update[:update_count] %></td>
+      <td><%= update[:frequency] %></td>
+    </tr>
+  <% end %>
+</table>

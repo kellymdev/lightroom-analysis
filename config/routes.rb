@@ -8,6 +8,7 @@ Rails.application.routes.draw do
 
   get 'file_formats', to: 'images#file_formats'
   get 'ratings', to: 'images#ratings'
+  get 'updates', to: 'images#updates'
 
   get 'apertures', to: 'exif#apertures'
   get 'focal_lengths', to: 'exif#focal_lengths'
@@ -18,6 +19,7 @@ Rails.application.routes.draw do
 
   get '/graphs/file_format_data', to: 'graphs#file_format_data', defaults: { format: 'json' }
   get '/graphs/rating_data', to: 'graphs#rating_data', defaults: { format: 'json' }
+  get '/graphs/update_data', to: 'graphs#update_data', defaults: { format: 'json' }
 
   get '/graphs/aperture_data', to: 'graphs#aperture_data',defaults: { format: 'json' }
   get '/graphs/focal_length_data', to: 'graphs#focal_length_data', defaults: { format: 'json' }
