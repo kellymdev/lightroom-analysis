@@ -1,16 +1,16 @@
 $.ajax({
         type: "GET",
         contentType: "application/json; charset=utf-8",
-        url: 'graphs/update_data',
+        url: 'graphs/develop_step_data',
         dataType: 'json',
         success: function (data) {
-          drawUpdateCounts(data);
+          drawDevelopSteps(data);
         },
         error: function (result) {
         }
       });
 
-function drawUpdateCounts(data) {
+function drawDevelopSteps(data) {
   var margin = {top: 20, right: 30, bottom: 30, left: 40};
   var width = 960 - margin.left - margin.right;
   var height = 400 - margin.top - margin.bottom;
@@ -24,13 +24,13 @@ function drawUpdateCounts(data) {
     .attr("class", "tooltip")
     .style("opacity", 0);
 
-  var chart = d3.select(".update-chart")
+  var chart = d3.select(".develop-steps-chart")
     .attr("width", width + margin.left + margin.right)
     .attr("height", height + margin.top + margin.bottom)
     .append("g")
     .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-  x.domain(data.map(function(d) { return d.update_count; }));
+  x.domain(data.map(function(d) { return d.develop_step; }));
   y.domain([0, d3.max(data, function(d) { return d.frequency; })]);
 
   chart.append("g")
@@ -50,7 +50,7 @@ function drawUpdateCounts(data) {
     .data(data)
     .enter().append("rect")
     .attr("class", "bar")
-    .attr("x", function(d) { return x(d.update_count); })
+    .attr("x", function(d) { return x(d.develop_step); })
     .attr("y", function(d) { return y(d.frequency); })
     .attr("height", function(d) { return height - y(d.frequency); })
     .attr("width", 5)
@@ -60,7 +60,7 @@ function drawUpdateCounts(data) {
       div.transition()
         .duration(200)
         .style("opacity", .9);
-      div.html('Updates: ' + d.update_count + '<br/>' + d.frequency)
+      div.html(d.develop_step + '<br/>' + d.frequency)
         .style("left", (d3.event.pageX) + "px")
         .style("top", (d3.event.pageY - 28) + "px");
     })
@@ -77,5 +77,5 @@ function drawUpdateCounts(data) {
     .attr("x", (width / 2))
     .attr("y", 0 - (margin.top / 2))
     .attr("text-anchor", "middle")
-    .text("Update Count Frequencies");
+    .text("Development Step Frequencies");
 }

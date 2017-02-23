@@ -164,7 +164,7 @@
     </td>
 
     <td>
-      <h3>Most popular development steps:</h3>
+      <h3><%= link_to "Most popular development steps:", develop_steps_path %></h3>
       <ul>
         <% @popular_develop_steps.each do |step| %>
           <li><%= step[:develop_step] %> <span class="stats">(<%= step[:frequency] %>)</span></li>

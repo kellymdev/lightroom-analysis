@@ -3,7 +3,7 @@ class AdobeLibraryImageDevelopHistoryStep < ApplicationRecord
 
   self.table_name = 'Adobe_libraryImageDevelopHistoryStep'
 
-  def self.popular_develop_steps(limit)
+  def self.popular_develop_steps(limit = history_steps.count)
     frequencies = calculate_frequencies(history_steps)
 
     frequencies[0..(limit - 1)].map do |step|

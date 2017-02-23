@@ -7,7 +7,6 @@ $.ajax({
           drawIsos(data);
         },
         error: function (result) {
-          error();
         }
       });
 

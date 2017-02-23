@@ -7,7 +7,6 @@ $.ajax({
           drawShutterspeeds(data);
         },
         error: function (result) {
-          error();
         }
       });
 

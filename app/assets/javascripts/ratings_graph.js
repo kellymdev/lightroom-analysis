@@ -7,7 +7,6 @@ $.ajax({
           drawRatings(data);
         },
         error: function (result) {
-          error();
         }
       });
 

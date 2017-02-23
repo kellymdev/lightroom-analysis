@@ -18,6 +18,7 @@ Rails.application.routes.draw do
   get 'cameras', to: 'exif#cameras'
 
   get 'crop_sizes', to: 'develop_settings#crop_sizes'
+  get 'develop_steps', to: 'develop_settings#develop_steps'
   get 'white_balances', to: 'develop_settings#white_balances'
 
   get '/graphs/keyword_data', to: 'graphs#keyword_data', defaults: { format: 'json' }
@@ -35,5 +36,6 @@ Rails.application.routes.draw do
   get '/graphs/camera_data', to: 'graphs#camera_data', defaults: { format: 'json' }
 
   get '/graphs/crop_size_data', to: 'graphs#crop_size_data', defaults: { format: 'json' }
+  get '/graphs/develop_step_data', to: 'graphs#develop_step_data', defaults: { format: 'json' }
   get '/graphs/white_balance_data', to: 'graphs#white_balance_data', defaults: { format: 'json' }
 end

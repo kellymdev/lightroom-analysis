@@ -7,7 +7,6 @@ $.ajax({
           drawFocalLengths(data);
         },
         error: function (result) {
-          error();
         }
       });
 

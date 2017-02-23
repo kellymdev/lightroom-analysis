@@ -1,0 +1,17 @@
+<h2>Development Steps</h2>
+
+<svg class="develop-steps-chart" width=960 height=400></svg>
+
+<table class="data-table">
+  <tr>
+    <th>Development Step</th>
+    <th>Frequency</th>
+  </tr>
+
+  <% @develop_steps.each do |step| %>
+    <tr>
+      <td><%= step[:develop_step] %></td>
+      <td><%= step[:frequency] %></td>
+    </tr>
+  <% end %>
+</table>

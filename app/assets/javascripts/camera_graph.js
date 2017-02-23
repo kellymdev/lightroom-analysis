@@ -7,7 +7,6 @@ $.ajax({
           drawCameras(data);
         },
         error: function (result) {
-          error();
         }
       });
 

@@ -7,7 +7,6 @@ $.ajax({
           drawPairedKeywords(data);
         },
         error: function (result) {
-          error();
         }
       });
 

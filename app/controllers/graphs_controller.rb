@@ -71,6 +71,12 @@ class GraphsController < ApplicationController
     end
   end
 
+  def develop_step_data
+    respond_to do |format|
+      format.json { render json: AdobeLibraryImageDevelopHistoryStep.popular_develop_steps(100) }
+    end
+  end
+
   def white_balance_data
     respond_to do |format|
       format.json { render json: AdobeImageDevelopSetting.popular_white_balances.as_json }

@@ -7,7 +7,6 @@ $.ajax({
           drawFileFormats(data);
         },
         error: function (result) {
-          error();
         }
       });
 
