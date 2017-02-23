@@ -64,4 +64,10 @@ class GraphsController < ApplicationController
       format.json { render json: AgHarvestedExifMetadata.camera_list.as_json }
     end
   end
+
+  def white_balance_data
+    respond_to do |format|
+      format.json { render json: AdobeImageDevelopSetting.popular_white_balances.as_json }
+    end
+  end
 end

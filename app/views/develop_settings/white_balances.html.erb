@@ -1,0 +1,17 @@
+<h2>White Balances</h2>
+
+<svg class="white-balance-chart" width=960 height=400></svg>
+
+<table class="data-table">
+  <tr>
+    <th>White Balance</th>
+    <th>Frequency</th>
+  </tr>
+
+  <% @white_balances.each do |white_balance| %>
+    <tr>
+      <td><%= white_balance[:white_balance] %></td>
+      <td><%= white_balance[:frequency] %></td>
+    </tr>
+  <% end %>
+</table>

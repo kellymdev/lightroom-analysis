@@ -15,7 +15,7 @@ class AdobeImageDevelopSetting < ApplicationRecord
     end
   end
 
-  def self.popular_white_balances(limit)
+  def self.popular_white_balances(limit = white_balances.count)
     frequencies = calculate_frequencies(white_balances)
 
     frequencies[0..(limit - 1)].map do |white_balance|
