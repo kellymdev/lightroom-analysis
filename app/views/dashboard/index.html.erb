@@ -48,7 +48,7 @@
     </td>
 
     <td>
-      <h3>Most popular ratings:</h3>
+      <h3><%= link_to "Most popular ratings:", ratings_path %></h3>
       <ul>
         <% @popular_ratings.each do |rating| %>
           <li><%= rating[:rating] %> <span class="stats">(<%= rating[:frequency] %>)</span></li>

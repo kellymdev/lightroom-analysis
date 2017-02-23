@@ -17,6 +17,12 @@ class GraphsController < ApplicationController
     end
   end
 
+  def rating_data
+    respond_to do |format|
+      format.json { render json: AdobeImage.popular_ratings.as_json }
+    end
+  end
+
   def aperture_data
     respond_to do |format|
       format.json { render json: AgHarvestedExifMetadata.popular_apertures(100).as_json }

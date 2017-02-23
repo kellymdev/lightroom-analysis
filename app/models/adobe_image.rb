@@ -14,7 +14,7 @@ class AdobeImage < ApplicationRecord
     end
   end
 
-  def self.popular_ratings(limit)
+  def self.popular_ratings(limit = ratings.count)
     frequencies = calculate_frequencies(ratings)
 
     frequencies[0..(limit - 1)].map do |rating|

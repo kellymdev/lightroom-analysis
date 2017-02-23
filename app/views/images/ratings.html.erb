@@ -1,0 +1,17 @@
+<h2>Ratings</h2>
+
+<svg class="rating-chart" width=960 height=400></svg>
+
+<table class="data-table">
+  <tr>
+    <th>Rating</th>
+    <th>Frequency</th>
+  </tr>
+
+  <% @ratings.each do |rating| %>
+    <tr>
+      <td><%= rating[:rating] %></td>
+      <td><%= rating[:frequency] %></td>
+    </tr>
+  <% end %>
+</table>
