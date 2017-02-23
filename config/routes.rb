@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   get 'focal_lengths', to: 'exif#focal_lengths'
   get 'lenses', to: 'exif#lenses'
   get 'isos', to: 'exif#isos'
+  get 'shutterspeeds', to: 'exif#shutterspeeds'
 
   get '/graphs/keyword_data', to: 'graphs#keyword_data', defaults: { format: 'json' }
   get '/graphs/paired_keyword_data', to: 'graphs#paired_keyword_data', defaults: { format: 'json' }
@@ -26,4 +27,5 @@ Rails.application.routes.draw do
   get '/graphs/focal_length_data', to: 'graphs#focal_length_data', defaults: { format: 'json' }
   get '/graphs/lens_data', to: 'graphs#lens_data', defaults: { format: 'json' }
   get '/graphs/iso_data', to: 'graphs#iso_data', defaults: { format: 'json' }
+  get '/graphs/shutterspeed_data', to: 'graphs#shutterspeed_data', defaults: { format: 'json' }
 end

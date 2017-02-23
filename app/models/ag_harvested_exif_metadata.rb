@@ -56,7 +56,7 @@ class AgHarvestedExifMetadata < ApplicationRecord
     end
   end
 
-  def self.popular_shutterspeeds(limit)
+  def self.popular_shutterspeeds(limit = shutterspeeds.count)
     frequencies = calculate_frequencies(shutterspeeds)
 
     frequencies[0..(limit - 1)].map do |shutterspeed|

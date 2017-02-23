@@ -14,4 +14,8 @@ class ExifController < ApplicationController
   def isos
     @isos = AgHarvestedExifMetadata.popular_isos
   end
+
+  def shutterspeeds
+    @shutterspeeds = AgHarvestedExifMetadata.popular_shutterspeeds
+  end
 end

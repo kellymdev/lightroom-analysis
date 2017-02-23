@@ -13,13 +13,13 @@ class GraphsController < ApplicationController
 
   def file_format_data
     respond_to do |format|
-      format.json { render json: AdobeImage.popular_file_formats.as_json }
+      format.json { render json: AdobeImage.popular_file_formats(100).as_json }
     end
   end
 
   def rating_data
     respond_to do |format|
-      format.json { render json: AdobeImage.popular_ratings.as_json }
+      format.json { render json: AdobeImage.popular_ratings(100).as_json }
     end
   end
 
@@ -49,7 +49,13 @@ class GraphsController < ApplicationController
 
   def iso_data
     respond_to do |format|
-      format.json { render json: AgHarvestedExifMetadata.popular_isos.as_json }
+      format.json { render json: AgHarvestedExifMetadata.popular_isos(100).as_json }
+    end
+  end
+
+  def shutterspeed_data
+    respond_to do |format|
+      format.json { render json: AgHarvestedExifMetadata.popular_shutterspeeds(100).as_json }
     end
   end
 end

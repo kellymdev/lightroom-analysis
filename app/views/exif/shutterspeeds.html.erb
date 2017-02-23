@@ -1,0 +1,17 @@
+<h2>Shutterspeeds</h2>
+
+<svg class="shutterspeed-chart" width=960 height=400></svg>
+
+<table class="data-table">
+  <tr>
+    <th>Shutterspeed</th>
+    <th>Frequency</th>
+  </tr>
+
+  <% @shutterspeeds.each do |shutterspeed| %>
+    <tr>
+      <td><%= shutterspeed[:shutterspeed] %></td>
+      <td><%= shutterspeed[:frequency] %></td>
+    </tr>
+  <% end %>
+</table>

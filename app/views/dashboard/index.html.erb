@@ -106,7 +106,7 @@
     </td>
 
     <td>
-      <h3>Most popular shutterspeeds:</h3>
+      <h3><%= link_to "Most popular shutterspeeds:", shutterspeeds_path %></h3>
       <ul>
         <% @popular_shutterspeeds.each do |shutterspeed| %>
           <li><%= shutterspeed[:shutterspeed] %> <span class="stats">(<%= shutterspeed[:frequency] %>)</span></li>
