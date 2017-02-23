@@ -10,6 +10,15 @@ $title-font: 'Pacifico', cursive;
 $heading-font: 'Nunito', sans-serif;
 $body-font: 'Quicksand', sans-serif;
 
+.arc text {
+  font: 10px $body-font;
+  text-anchor: middle;
+}
+
+.arc path {
+  stroke: $cream;
+}
+
 .bar {
   fill: $dark-green;
 }

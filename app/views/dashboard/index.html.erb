@@ -39,7 +39,7 @@
 
   <tr>
     <td>
-      <h3>Most popular file formats:</h3>
+      <h3><%= link_to "Most popular file formats:", file_formats_path %></h3>
       <ul>
         <% @popular_file_formats.each do |file_format| %>
           <li><%= file_format[:format] %> <span class="stats">(<%= file_format[:frequency] %>)</span></li>

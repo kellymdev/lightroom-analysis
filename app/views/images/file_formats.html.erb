@@ -1,0 +1,17 @@
+<h2>File Formats</h2>
+
+<svg class="file-format-chart" width=960 height=400></svg>
+
+<table class="data-table">
+  <tr>
+    <th>File Format</th>
+    <th>Frequency</th>
+  </tr>
+
+  <% @formats.each do |format| %>
+    <tr>
+      <td><%= format[:format] %></td>
+      <td><%= format[:frequency] %></td>
+    </tr>
+  <% end %>
+</table>

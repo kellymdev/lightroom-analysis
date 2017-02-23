@@ -3,7 +3,7 @@ class AdobeImage < ApplicationRecord
 
   self.table_name = 'Adobe_images'
 
-  def self.popular_file_formats(limit)
+  def self.popular_file_formats(limit = file_formats.count)
     frequencies = calculate_frequencies(file_formats)
 
     frequencies[0..(limit - 1)].map do |file_format|
