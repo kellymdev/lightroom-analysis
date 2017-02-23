@@ -103,7 +103,7 @@ class AgHarvestedExifMetadata < ApplicationRecord
     end.compact
   end
 
-  def self.popular_isos_with_cameras(limit)
+  def self.popular_isos_with_cameras(limit = isos_with_cameras.count)
     frequencies = calculate_frequencies(isos_with_cameras)
 
     frequencies[0..(limit - 1)].map do |camera|
@@ -115,6 +115,15 @@ class AgHarvestedExifMetadata < ApplicationRecord
         frequency: camera.second
       }
     end.compact
+  end
+
+  def self.isos_by_camera_list
+    popular_isos_with_cameras(100).map do |iso|
+      {
+        iso: "#{iso[:camera].value}, Iso #{iso[:iso]}",
+        frequency: iso[:frequency]
+      }
+    end
   end
 
   def self.popular_lenses_with_cameras(limit)

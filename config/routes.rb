@@ -17,6 +17,8 @@ Rails.application.routes.draw do
   get 'shutterspeeds', to: 'exif#shutterspeeds'
   get 'cameras', to: 'exif#cameras'
 
+  get 'isos_by_camera', to: 'exif#isos_by_camera'
+
   get 'crop_sizes', to: 'develop_settings#crop_sizes'
   get 'develop_steps', to: 'develop_settings#develop_steps'
   get 'adjustments', to: 'develop_settings#adjustments'
@@ -35,6 +37,8 @@ Rails.application.routes.draw do
   get '/graphs/iso_data', to: 'graphs#iso_data', defaults: { format: 'json' }
   get '/graphs/shutterspeed_data', to: 'graphs#shutterspeed_data', defaults: { format: 'json' }
   get '/graphs/camera_data', to: 'graphs#camera_data', defaults: { format: 'json' }
+
+  get '/graphs/isos_by_camera_data', to: 'graphs#isos_by_camera_data', defaults: { format: 'json' }
 
   get '/graphs/crop_size_data', to: 'graphs#crop_size_data', defaults: { format: 'json' }
   get '/graphs/develop_step_data', to: 'graphs#develop_step_data', defaults: { format: 'json' }

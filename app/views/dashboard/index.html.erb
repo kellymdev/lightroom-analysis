@@ -126,7 +126,7 @@
 
   <tr>
     <td>
-      <h3>Most popular isos by camera:</h3>
+      <h3><%= link_to "Most popular isos by camera:", isos_by_camera_path %></h3>
       <ul>
         <% @popular_isos_with_cameras.each do |camera| %>
           <li><%= camera[:camera].value %> - <%= camera[:iso] %> <span class="stats">(<%= camera[:frequency] %>)</span></li>

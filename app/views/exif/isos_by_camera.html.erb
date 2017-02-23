@@ -1,0 +1,19 @@
+<h2>Isos by Camera</h2>
+
+<svg class="isos-by-camera-chart" width=960 height=400></svg>
+
+<table class="data-table">
+  <tr>
+    <th>Camera</th>
+    <th>Iso</th>
+    <th>Frequency</th>
+  </tr>
+
+  <% @isos_by_camera.each do |iso| %>
+    <tr>
+      <td><%= iso[:camera][:value] %></td>
+      <td><%= iso[:iso] %></td>
+      <td><%= iso[:frequency] %></td>
+    </tr>
+  <% end %>
+</table>

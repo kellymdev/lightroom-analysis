@@ -22,4 +22,8 @@ class ExifController < ApplicationController
   def cameras
     @cameras = AgHarvestedExifMetadata.popular_cameras
   end
+
+  def isos_by_camera
+    @isos_by_camera = AgHarvestedExifMetadata.popular_isos_with_cameras
+  end
 end
