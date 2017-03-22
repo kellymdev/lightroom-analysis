@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe AdobeImageDevelopSetting, type: :model do
   let!(:settings) { AdobeImageDevelopSetting.create!(croppedHeight: 2928.0, croppedWidth: 4392.0, whiteBalance: 'As Shot') }
 
-  describe '#popular_crop_sizes' do
+  describe '.popular_crop_sizes' do
     let(:expected_data) do
       [{
         height: settings.croppedHeight.to_i,
@@ -17,7 +17,7 @@ RSpec.describe AdobeImageDevelopSetting, type: :model do
     end
   end
 
-  describe '#crop_size_list' do
+  describe '.crop_size_list' do
     let(:expected_data) do
       [{
         size: "#{settings.croppedWidth.to_i} x #{settings.croppedHeight.to_i}",
@@ -30,7 +30,7 @@ RSpec.describe AdobeImageDevelopSetting, type: :model do
     end
   end
 
-  describe '#popular_white_balances' do
+  describe '.popular_white_balances' do
     let(:expected_data) do
       [{
         white_balance: settings.whiteBalance,

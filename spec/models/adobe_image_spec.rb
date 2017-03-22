@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe AdobeImage, type: :model do
   let!(:image) { AdobeImage.create!(id_global: 'ABC123', fileFormat: 'RAW', rating: 3, touchCount: 2) }
 
-  describe '#popular_file_formats' do
+  describe '.popular_file_formats' do
     let(:expected_data) do
       [{
         format: image.fileFormat,
@@ -16,7 +16,7 @@ RSpec.describe AdobeImage, type: :model do
     end
   end
 
-  describe '#popular_ratings' do
+  describe '.popular_ratings' do
     let(:expected_data) do
       [{
         rating: image.rating,
@@ -29,7 +29,7 @@ RSpec.describe AdobeImage, type: :model do
     end
   end
 
-  describe '#popular_update_counts' do
+  describe '.popular_update_counts' do
     let(:expected_data) do
       [{
         update_count: image.touchCount,

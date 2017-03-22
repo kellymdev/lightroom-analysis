@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe AdobeLibraryImageDevelopHistoryStep, type: :model do
   let!(:history_step) { AdobeLibraryImageDevelopHistoryStep.create!(id_global: 'ABC', name: 'Contrast', relValueString: '+7') }
 
-  describe '#popular_develop_steps' do
+  describe '.popular_develop_steps' do
     let(:expected_data) do
       [{
         develop_step: history_step.name,
@@ -16,7 +16,7 @@ RSpec.describe AdobeLibraryImageDevelopHistoryStep, type: :model do
     end
   end
 
-  describe '#popular_develop_steps_with_adjustments' do
+  describe '.popular_develop_steps_with_adjustments' do
     let(:expected_data) do
       [{
         develop_step: history_step.name,
@@ -30,7 +30,7 @@ RSpec.describe AdobeLibraryImageDevelopHistoryStep, type: :model do
     end
   end
 
-  describe '#adjustments_list' do
+  describe '.adjustments_list' do
     let(:expected_data) do
       [{
         adjustment: "#{history_step.name} #{history_step.relValueString}",
