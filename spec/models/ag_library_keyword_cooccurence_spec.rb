@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe AgLibraryKeywordCooccurrence, type: :model do
+RSpec.describe AgLibraryKeywordCooccurrence, type: :model do
   let!(:keyword) { AgLibraryKeyword.create!(id_global: 'DEF456', dateCreated: 508563730.3633808, lc_name: 'test', name: 'Test') }
   let!(:keyword_two) { AgLibraryKeyword.create!(id_global: 'GHI789', dateCreated: 508563730.3633808, lc_name: 'name', name: 'Name') }
   let!(:cooccurrence) { AgLibraryKeywordCooccurrence.create!(tag1: keyword.id_local, tag2: keyword_two.id_local, value: 1.0) }
