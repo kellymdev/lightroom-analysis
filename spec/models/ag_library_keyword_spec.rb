@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe AgLibraryKeyword, type: :model do
+RSpec.describe AgLibraryKeyword, type: :model do
   let!(:image) { AdobeImage.create!(id_global: 'ABC123', fileFormat: 'RAW', rating: 3, touchCount: 2) }
   let!(:keyword) { AgLibraryKeyword.create!(id_global: 'DEF456', dateCreated: 508563730.3633808, lc_name: 'test', name: 'Test') }
   let!(:keyword_image) { AgLibraryKeywordImage.create!(image: image.id_local, tag: keyword.id_local) }
