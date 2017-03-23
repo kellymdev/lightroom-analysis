@@ -1,0 +1,22 @@
+<h2>Cameras by Year</h2>
+
+<svg class="camera-year-chart" width=960 height=400></svg>
+
+<table class="data-table">
+  <tr>
+    <th>Year</th>
+    <th>Camera and Frequency</th>
+  </tr>
+
+  <% @cameras_by_year.each do |year| %>
+    <tr>
+      <td><%= year.first %></td>
+
+      <td>
+        <% year.second.each do |camera| %>
+          <p><%= camera[:camera][:value] %> <span class="stats">(<%= camera[:frequency] %>)</span></p>
+        <% end %>
+      </td>
+    </tr>
+  <% end %>
+</table>

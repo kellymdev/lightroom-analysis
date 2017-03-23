@@ -106,4 +106,10 @@ class GraphsController < ApplicationController
       format.json { render json: AdobeImageDevelopSetting.popular_white_balances.as_json }
     end
   end
+
+  def cameras_by_year_data
+    respond_to do |format|
+      format.json { render json: AgHarvestedExifMetadata.cameras_by_year_list.as_json }
+    end
+  end
 end

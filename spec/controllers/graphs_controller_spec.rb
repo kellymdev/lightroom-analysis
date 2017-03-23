@@ -93,7 +93,7 @@ RSpec.describe GraphsController, type: :controller do
   context 'for exif data' do
     let!(:lens) { AgInternedExifLens.create!(searchIndex: '/t105mm/tis/tef24/tf/4l/tusm/t', value: 'EF24-105mm f/4L IS USM') }
     let!(:camera) { AgInternedExifCameraModel.create!(searchIndex: '/tcanon/teos/t7d/t', value: 'Canon EOS 7D') }
-    let!(:exif) { AgHarvestedExifMetadata.create!(image: 1, aperture: 8.0, cameraModelRef: camera.id_local, focalLength: 67.0, isoSpeedRating: 100.0, lensRef: lens.id_local, shutterSpeed: 2.0) }
+    let!(:exif) { AgHarvestedExifMetadata.create!(image: 1, aperture: 8.0, cameraModelRef: camera.id_local, dateYear: 2017.0, focalLength: 67.0, isoSpeedRating: 100.0, lensRef: lens.id_local, shutterSpeed: 2.0) }
 
     describe '#aperture_data' do
       let(:expected_data) do
@@ -225,6 +225,22 @@ RSpec.describe GraphsController, type: :controller do
 
       it 'returns a list of camera and lens data as json' do
         get :lenses_by_camera_data, params: { format: :json }
+
+        expect(response.body).to eq(expected_data.to_json)
+      end
+    end
+
+    describe '#cameras_by_year_data' do
+      let(:expected_data) do
+        [{
+          year: exif.dateYear.to_i,
+          camera: camera.value,
+          frequency: 1
+        }]
+      end
+
+      it 'returns a list of camera and year data as json' do
+        get :cameras_by_year_data, params: { format: :json }
 
         expect(response.body).to eq(expected_data.to_json)
       end

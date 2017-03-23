@@ -21,6 +21,8 @@ Rails.application.routes.draw do
   get 'focal_lengths_by_camera', to: 'exif#focal_lengths_by_camera'
   get 'lenses_by_camera', to: 'exif#lenses_by_camera'
 
+  get 'cameras_by_year', to: 'exif#cameras_by_year'
+
   get 'crop_sizes', to: 'develop_settings#crop_sizes'
   get 'develop_steps', to: 'develop_settings#develop_steps'
   get 'adjustments', to: 'develop_settings#adjustments'
@@ -48,4 +50,6 @@ Rails.application.routes.draw do
   get '/graphs/develop_step_data', to: 'graphs#develop_step_data', defaults: { format: 'json' }
   get '/graphs/adjustment_data', to: 'graphs#adjustment_data', defaults: { format: 'json' }
   get '/graphs/white_balance_data', to: 'graphs#white_balance_data', defaults: { format: 'json' }
+
+  get '/graphs/cameras_by_year_data', to: 'graphs#cameras_by_year_data', defaults: { format: 'json' }
 end

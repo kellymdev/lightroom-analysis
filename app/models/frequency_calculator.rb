@@ -4,6 +4,11 @@ module FrequencyCalculator
     sort_by_frequency(frequencies)
   end
 
+  def calculate_year_frequencies(data)
+    frequencies = frequencies(data)
+    sort_by_year(frequencies)
+  end
+
   private
 
   def frequencies(data)
@@ -18,6 +23,12 @@ module FrequencyCalculator
     end
 
     frequencies
+  end
+
+  def sort_by_year(data)
+    filtered = data.delete_if { |camera_year, frequency| camera_year.second.nil? }
+
+    filtered.sort_by { |camera_year, frequency| camera_year.second }
   end
 
   def sort_by_frequency(data)

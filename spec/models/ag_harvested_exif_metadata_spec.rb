@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe AgHarvestedExifMetadata, type: :model do
   let!(:lens) { AgInternedExifLens.create!(searchIndex: '/t105mm/tis/tef24/tf/4l/tusm/t', value: 'EF24-105mm f/4L IS USM') }
   let!(:camera) { AgInternedExifCameraModel.create!(searchIndex: '/tcanon/teos/t7d/t', value: 'Canon EOS 7D') }
-  let!(:exif) { AgHarvestedExifMetadata.create!(image: 1, aperture: 8.0, cameraModelRef: camera.id_local, flashFired: 0, focalLength: 67.0, isoSpeedRating: 100.0, lensRef: lens.id_local, shutterSpeed: 2.0) }
+  let!(:exif) { AgHarvestedExifMetadata.create!(image: 1, aperture: 8.0, cameraModelRef: camera.id_local, dateYear: 2017.0, flashFired: 0, focalLength: 67.0, isoSpeedRating: 100.0, lensRef: lens.id_local, shutterSpeed: 2.0) }
 
   describe '.popular_apertures' do
     let(:expected_data) do
@@ -187,6 +187,35 @@ RSpec.describe AgHarvestedExifMetadata, type: :model do
 
     it 'returns a list of camera values and lens values with their frequencies' do
       expect(AgHarvestedExifMetadata.lenses_by_camera_list).to eq(expected_data)
+    end
+  end
+
+  describe '.cameras_by_year' do
+    let(:expected_data) do
+      {
+        '2017' => [{
+          camera: camera,
+          frequency: 1
+        }]
+      }
+    end
+
+    it 'returns a list of cameras, years and frequencies' do
+      expect(AgHarvestedExifMetadata.cameras_by_year).to eq(expected_data)
+    end
+  end
+
+  describe '.cameras_by_year_list' do
+    let(:expected_data) do
+      [{
+        year: 2017,
+        camera: camera.value,
+        frequency: 1
+      }]
+    end
+
+    it 'returns a list of camera values with frequencies for each year' do
+      expect(AgHarvestedExifMetadata.cameras_by_year_list).to eq(expected_data)
     end
   end
 
