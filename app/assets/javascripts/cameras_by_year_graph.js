@@ -11,6 +11,7 @@ $.ajax({
       });
 
 function drawCamerasByYear(data) {
+  console.log(data);
   var margin = {top: 20, right: 30, bottom: 30, left: 40};
   var width = 960 - margin.left - margin.right;
   var height = 400 - margin.top - margin.bottom;
@@ -18,7 +19,7 @@ function drawCamerasByYear(data) {
   var x0 = d3.scaleBand().rangeRound([0, width]).paddingInner(0.1);
   var x1 = d3.scaleBand().padding(0.05);
   var y = d3.scaleLinear().rangeRound([height, 0]);
-  var z = d3.scaleOrdinal().range(["#41434A", "#6E9489", "#DEDCC3", "#877963"]);
+  var z = d3.scaleOrdinal().range(["#41434A", "#6E9489", "#DEDCC3", "#877963", "#FFF"]);
   var xAxis = d3.axisBottom().scale(x0);
   var yAxis = d3.axisLeft().scale(y);
 
@@ -35,11 +36,11 @@ function drawCamerasByYear(data) {
   chart.append("g")
     .attr("class", "x axis")
     .attr("transform", "translate(0," + height + ")")
-    .call(d3.axisBottom(x0));
+    .call(xAxis);
 
   chart.append("g")
     .attr("class", "y axis")
-    .call(d3.axisLeft(y))
+    .call(yAxis)
     .append("text")
     .attr("transform", "rotate(-90)")
     .attr("y", 6)
@@ -61,4 +62,25 @@ function drawCamerasByYear(data) {
     .attr("y", function(d) { return y(d.frequency); })
     .attr("height", function(d) { return height - y(d.frequency); })
     .style("fill", function(d) { return z(d.camera); })
+
+  var legend = chart.append("g")
+    .attr("font-family", "sans-serif")
+    .attr("font-size", 10)
+    .attr("text-anchor", "end")
+    .selectAll("g")
+    .data(data.map(function(d) { return d.camera; }))
+    .enter().append("g")
+    .attr("transform", function(d, i) { return "translate(0," + i * 20 + ")"; });
+
+  legend.append("rect")
+    .attr("x", width - 19)
+    .attr("width", 19)
+    .attr("height", 19)
+    .attr("fill", z);
+
+  legend.append("text")
+    .attr("x", width - 24)
+    .attr("y", 9.5)
+    .attr("dy", "0.32em")
+    .text(function(d) { return d; });
 }
