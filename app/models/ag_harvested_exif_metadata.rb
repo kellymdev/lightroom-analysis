@@ -210,6 +210,23 @@ class AgHarvestedExifMetadata < ApplicationRecord
     year_data
   end
 
+  def self.isos_by_year
+    year_data = {}
+
+    years.each do |year|
+      frequencies = calculate_frequencies(isos_for(year))
+
+      year_data[year.to_i.to_s] = frequencies[0..-1].map do |iso|
+        {
+          iso: iso.first,
+          frequency: iso.second
+        }
+      end.compact
+    end
+
+    year_data
+  end
+
   def self.image_count_using_flash
     AgHarvestedExifMetadata.select { |image| image.flashFired == 1 }.count
   end
@@ -274,5 +291,9 @@ class AgHarvestedExifMetadata < ApplicationRecord
 
   def self.lenses_for(year)
     AgHarvestedExifMetadata.where(dateYear: year).pluck(:lensRef).compact
+  end
+
+  def self.isos_for(year)
+    AgHarvestedExifMetadata.where(dateYear: year).pluck(:isoSpeedRating).compact
   end
 end
