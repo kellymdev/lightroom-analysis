@@ -19,7 +19,7 @@ function drawCamerasByYear(data) {
   var x0 = d3.scaleBand().rangeRound([0, width]).paddingInner(0.1);
   var x1 = d3.scaleBand().padding(0.05);
   var y = d3.scaleLinear().rangeRound([height, 0]);
-  var z = d3.scaleOrdinal().range(["#41434A", "#6E9489", "#DEDCC3", "#877963", "#FFF"]);
+  var z = d3.scaleOrdinal().range(["#41434A", "#6E9489", "#DEDCC3", "#877963", "#FFF", "#C1E8D7"]);
   var xAxis = d3.axisBottom().scale(x0);
   var yAxis = d3.axisLeft().scale(y);
 
@@ -68,7 +68,7 @@ function drawCamerasByYear(data) {
     .attr("font-size", 10)
     .attr("text-anchor", "end")
     .selectAll("g")
-    .data(data.map(function(d) { return d.camera; }))
+    .data(Array.from(new Set(data.map(function(d) { return d.camera; }))))
     .enter().append("g")
     .attr("transform", function(d, i) { return "translate(0," + i * 20 + ")"; });
 
