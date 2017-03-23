@@ -22,6 +22,7 @@ Rails.application.routes.draw do
   get 'lenses_by_camera', to: 'exif#lenses_by_camera'
 
   get 'cameras_by_year', to: 'exif#cameras_by_year'
+  get 'lenses_by_year', to: 'exif#lenses_by_year'
 
   get 'crop_sizes', to: 'develop_settings#crop_sizes'
   get 'develop_steps', to: 'develop_settings#develop_steps'

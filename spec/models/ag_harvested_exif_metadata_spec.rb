@@ -219,6 +219,21 @@ RSpec.describe AgHarvestedExifMetadata, type: :model do
     end
   end
 
+  describe '.lenses_by_year' do
+    let(:expected_data) do
+      {
+        '2017' => [{
+          lens: lens,
+          frequency: 1
+        }]
+      }
+    end
+
+    it 'returns a list of lenses, years and frequencies' do
+      expect(AgHarvestedExifMetadata.lenses_by_year).to eq(expected_data)
+    end
+  end
+
   describe '.image_count_using_flash' do
     context 'when no images use flash' do
       it 'returns 0' do

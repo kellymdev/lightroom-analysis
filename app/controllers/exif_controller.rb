@@ -38,4 +38,8 @@ class ExifController < ApplicationController
   def cameras_by_year
     @cameras_by_year = AgHarvestedExifMetadata.cameras_by_year
   end
+
+  def lenses_by_year
+    @lenses_by_year = AgHarvestedExifMetadata.lenses_by_year
+  end
 end

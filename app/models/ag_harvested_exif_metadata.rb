@@ -191,6 +191,25 @@ class AgHarvestedExifMetadata < ApplicationRecord
     end.compact
   end
 
+  def self.lenses_by_year
+    year_data = {}
+
+    years.each do |year|
+      frequencies = calculate_frequencies(lenses_for(year))
+
+      year_data[year.to_i.to_s] = frequencies[0..-1].map do |lens|
+        next unless lens.first
+
+        {
+          lens: find_lens(lens.first),
+          frequency: lens.second
+        }
+      end.compact
+    end
+
+    year_data
+  end
+
   def self.image_count_using_flash
     AgHarvestedExifMetadata.select { |image| image.flashFired == 1 }.count
   end
@@ -251,5 +270,9 @@ class AgHarvestedExifMetadata < ApplicationRecord
 
   def self.cameras_for(year)
     AgHarvestedExifMetadata.where(dateYear: year).pluck(:cameraModelRef).compact
+  end
+
+  def self.lenses_for(year)
+    AgHarvestedExifMetadata.where(dateYear: year).pluck(:lensRef).compact
   end
 end

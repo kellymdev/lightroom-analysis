@@ -11,7 +11,6 @@ $.ajax({
       });
 
 function drawCamerasByYear(data) {
-  console.log(data);
   var margin = {top: 20, right: 30, bottom: 30, left: 40};
   var width = 960 - margin.left - margin.right;
   var height = 400 - margin.top - margin.bottom;

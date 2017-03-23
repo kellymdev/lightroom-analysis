@@ -1,0 +1,20 @@
+<h2>Lenses by Year</h2>
+
+<table class="data-table">
+  <tr>
+    <th>Year</th>
+    <th>Lens and Frequency</th>
+  </tr>
+
+  <% @lenses_by_year.each do |year| %>
+    <tr>
+      <td><%= year.first %></td>
+
+      <td>
+        <% year.second.each do |lens| %>
+          <p><%= lens[:lens][:value] %> <span class="stats">(<%= lens[:frequency] %>)</span></p>
+        <% end %>
+      </td>
+    </tr>
+  <% end %>
+</table>
