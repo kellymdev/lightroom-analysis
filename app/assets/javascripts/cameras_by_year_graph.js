@@ -57,7 +57,7 @@ function drawCamerasByYear(data) {
     .data(data)
     .enter().append("rect")
     .attr("width", x1.bandwidth())
-    .attr("x", function(d) { return x1(d.year); })
+    .attr("x", function(d) { return x1(d.camera); })
     .attr("y", function(d) { return y(d.frequency); })
     .attr("height", function(d) { return height - y(d.frequency); })
     .style("fill", function(d) { return z(d.camera); })
