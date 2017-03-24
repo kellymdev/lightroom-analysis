@@ -225,6 +225,7 @@ RSpec.describe AgHarvestedExifMetadata, type: :model do
       {
         '2017' => [{
           lens: lens,
+          lens_percentage: 100,
           frequency: 1
         }]
       }

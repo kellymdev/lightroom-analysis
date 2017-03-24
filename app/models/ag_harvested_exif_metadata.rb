@@ -163,7 +163,6 @@ class AgHarvestedExifMetadata < ApplicationRecord
 
     years.each do |year|
       frequencies = calculate_frequencies(cameras_for(year))
-
       image_count = image_count_for(year)
 
       year_data[year.to_i.to_s] = frequencies[0..-1].map do |camera|
@@ -199,12 +198,14 @@ class AgHarvestedExifMetadata < ApplicationRecord
 
     years.each do |year|
       frequencies = calculate_frequencies(lenses_for(year))
+      image_count = image_count_for(year)
 
       year_data[year.to_i.to_s] = frequencies[0..-1].map do |lens|
         next unless lens.first
 
         {
           lens: find_lens(lens.first),
+          lens_percentage: (100 * lens.second / image_count.to_f).round(2),
           frequency: lens.second
         }
       end.compact
@@ -237,7 +238,7 @@ class AgHarvestedExifMetadata < ApplicationRecord
       image_count = image_count_for(year)
       flash_count = flash_count_for(year)
       no_flash = image_count - flash_count
-      flash_percentage = (100 * flash_count / image_count).round
+      flash_percentage = (100 * flash_count / image_count).round(2)
 
       year_data[year.to_i.to_s] = {
         with_flash: flash_count,

@@ -12,7 +12,7 @@
 
       <td>
         <% year.second.each do |lens| %>
-          <p><%= lens[:lens][:value] %> <span class="stats">(<%= lens[:frequency] %>)</span></p>
+          <p><%= lens[:lens][:value] %> - <%= lens[:frequency] %> <span class="stats">(<%= lens[:lens_percentage] %>%)</span></p>
         <% end %>
       </td>
     </tr>
