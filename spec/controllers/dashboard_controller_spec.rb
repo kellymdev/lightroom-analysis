@@ -1,6 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe DashboardController, type: :controller do
+  render_views
+
   describe '#index' do
     before do
       get :index
