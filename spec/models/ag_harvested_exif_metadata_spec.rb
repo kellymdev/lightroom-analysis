@@ -236,6 +236,22 @@ RSpec.describe AgHarvestedExifMetadata, type: :model do
     end
   end
 
+  describe '.isos_by_year' do
+    let(:expected_data) do
+      {
+        '2017' => [{
+          iso: exif.isoSpeedRating,
+          iso_percentage: 100.00,
+          frequency: 1
+        }]
+      }
+    end
+
+    it 'returns a list of isos, years and frequencies' do
+      expect(AgHarvestedExifMetadata.isos_by_year).to eq(expected_data)
+    end
+  end
+
   describe '.images_using_flash_per_year' do
     context 'when no images use flash' do
       let(:expected_data) do

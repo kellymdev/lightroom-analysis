@@ -12,7 +12,7 @@
 
       <td>
         <% year.second.each do |iso| %>
-          <p><%= iso[:iso] %> <span class="stats">(<%= iso[:frequency] %>)</span></p>
+          <p><%= iso[:iso] %> - <%= iso[:frequency] %> <span class="stats">(<%= iso[:iso_percentage] %>%)</span></p>
         <% end %>
       </td>
     </tr>

@@ -219,10 +219,12 @@ class AgHarvestedExifMetadata < ApplicationRecord
 
     years.each do |year|
       frequencies = calculate_frequencies(isos_for(year))
+      image_count = image_count_for(year)
 
       year_data[year.to_i.to_s] = frequencies[0..-1].map do |iso|
         {
           iso: iso.first,
+          iso_percentage: (100 * iso.second / image_count.to_f).round(2),
           frequency: iso.second
         }
       end.compact
