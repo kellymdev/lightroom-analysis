@@ -46,4 +46,8 @@ class ExifController < ApplicationController
   def isos_by_year
     @isos_by_year = AgHarvestedExifMetadata.isos_by_year
   end
+
+  def flash_count_by_year
+    @flash_by_year = AgHarvestedExifMetadata.images_using_flash_per_year
+  end
 end

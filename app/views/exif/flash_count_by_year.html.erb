@@ -1,0 +1,19 @@
+<h2>Flash Count by Year</h2>
+
+<table class="data-table">
+  <tr>
+    <th>Year</th>
+    <th>Flash Count</th>
+  </tr>
+
+  <% @flash_by_year.each do |year| %>
+    <tr>
+      <td><%= year.first %></td>
+
+      <td>
+        <p>With flash: <%= year.second[:with_flash] %> <span class="stats">(<%= year.second[:flash_percentage] %>%)</span></p>
+        <p>Without flash: <%= year.second[:without_flash] %> <span class="stats">(<%= year.second[:without_flash_percentage] %>%)</span></p>
+      </td>
+    </tr>
+  <% end %>
+</table>

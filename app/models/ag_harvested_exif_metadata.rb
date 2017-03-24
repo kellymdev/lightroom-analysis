@@ -169,6 +169,7 @@ class AgHarvestedExifMetadata < ApplicationRecord
 
         {
           camera: find_camera(camera.first),
+          camera_percentage:
           frequency: camera.second
         }
       end.compact
@@ -222,6 +223,26 @@ class AgHarvestedExifMetadata < ApplicationRecord
           frequency: iso.second
         }
       end.compact
+    end
+
+    year_data
+  end
+
+  def self.images_using_flash_per_year
+    year_data = {}
+
+    years.each do |year|
+      image_count = image_count_for(year)
+      flash_count = flash_count_for(year)
+      no_flash = image_count - flash_count
+      flash_percentage = (100 * flash_count / image_count).round
+
+      year_data[year.to_i.to_s] = {
+        with_flash: flash_count,
+        flash_percentage: flash_percentage,
+        without_flash: no_flash,
+        without_flash_percentage: 100 - flash_percentage
+      }
     end
 
     year_data
@@ -295,5 +316,13 @@ class AgHarvestedExifMetadata < ApplicationRecord
 
   def self.isos_for(year)
     AgHarvestedExifMetadata.where(dateYear: year).pluck(:isoSpeedRating).compact
+  end
+
+  def self.flash_count_for(year)
+    AgHarvestedExifMetadata.where(dateYear: year).sum(:flashFired)
+  end
+
+  def self.image_count_for(year)
+    AgHarvestedExifMetadata.where(dateYear: year).count
   end
 end

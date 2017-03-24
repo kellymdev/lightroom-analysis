@@ -234,6 +234,44 @@ RSpec.describe AgHarvestedExifMetadata, type: :model do
     end
   end
 
+  describe '.images_using_flash_per_year' do
+    context 'when no images use flash' do
+      let(:expected_data) do
+        {
+          '2017' => {
+            with_flash: 0,
+            flash_percentage: 0,
+            without_flash: 1,
+            without_flash_percentage: 100
+          }
+        }
+      end
+
+      it 'returns a value of 0' do
+        expect(AgHarvestedExifMetadata.images_using_flash_per_year).to eq(expected_data)
+      end
+    end
+
+    context 'when an image uses flash' do
+      let!(:image) { AgHarvestedExifMetadata.create!(image: 1, aperture: 9.0, cameraModelRef: camera.id_local, dateYear: 2017.0, flashFired: 1, focalLength: 80.0, isoSpeedRating: 100.0, lensRef: lens.id_local, shutterSpeed: 2.0) }
+
+      let(:expected_data) do
+        {
+          '2017' => {
+            with_flash: 1,
+            flash_percentage: 50,
+            without_flash: 1,
+            without_flash_percentage: 50
+          }
+        }
+      end
+
+      it 'returns the flash count' do
+        expect(AgHarvestedExifMetadata.images_using_flash_per_year).to eq(expected_data)
+      end
+    end
+  end
+
   describe '.image_count_using_flash' do
     context 'when no images use flash' do
       it 'returns 0' do
