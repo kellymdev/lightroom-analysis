@@ -195,6 +195,7 @@ RSpec.describe AgHarvestedExifMetadata, type: :model do
       {
         '2017' => [{
           camera: camera,
+          camera_percentage: 100.00,
           frequency: 1
         }]
       }
@@ -259,9 +260,9 @@ RSpec.describe AgHarvestedExifMetadata, type: :model do
         {
           '2017' => {
             with_flash: 1,
-            flash_percentage: 50,
+            flash_percentage: 50.00,
             without_flash: 1,
-            without_flash_percentage: 50
+            without_flash_percentage: 50.00
           }
         }
       end

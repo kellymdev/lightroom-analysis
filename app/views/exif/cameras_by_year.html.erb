@@ -14,7 +14,7 @@
 
       <td>
         <% year.second.each do |camera| %>
-          <p><%= camera[:camera][:value] %> <span class="stats">(<%= camera[:frequency] %>)</span></p>
+          <p><%= camera[:camera][:value] %> - <%= camera[:frequency] %> <span class="stats">(<%= camera[:camera_percentage] %>%)</span></p>
         <% end %>
       </td>
     </tr>
